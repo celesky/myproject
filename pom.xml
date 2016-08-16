@@ -31,7 +31,11 @@
 		<artifactId>zkclient</artifactId>
 		<version>0.1</version>
 	</dependency>
-	
+	  <dependency>
+		  <groupId>javax.mail</groupId>
+		  <artifactId>mail</artifactId>
+		  <version>1.4.7</version>
+	  </dependency>
   	<dependency>
 			<groupId>com.service</groupId>
 			<artifactId>provider</artifactId>
