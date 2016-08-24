@@ -1,4 +1,4 @@
-package com.com.mail.authenticator;
+package com.mail.authenticator;
 
 import javax.mail.*;  
 /** 

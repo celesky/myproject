@@ -1,4 +1,4 @@
-package com.com.mail;
+package com.mail;
 
 /**  
 * 发送邮件需要使用的基本信息  

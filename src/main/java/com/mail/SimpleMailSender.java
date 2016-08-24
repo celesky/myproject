@@ -1,6 +1,6 @@
-package com.com.mail;
+package com.mail;
 
-import com.com.mail.authenticator.MyAuthenticator;
+import com.mail.authenticator.MyAuthenticator;
 
 import java.util.Date;
 import java.util.Properties;
