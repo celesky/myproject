@@ -3,7 +3,8 @@ package com.mail;
 /**  
 * 发送邮件需要使用的基本信息  
 */   
-import java.util.Properties;   
+import java.util.Arrays;
+import java.util.Properties;
 public class MailSenderInfo {   
       
     // 发送邮件的服务器的IP和端口   
@@ -99,6 +100,22 @@ public class MailSenderInfo {
     }  
     public void setContent(String textContent) {   
       this.content = textContent;   
-    }   
-}   
+    }
+
+    @Override
+    public String toString() {
+        return "MailSenderInfo{" +
+                "mailServerHost='" + mailServerHost + '\'' +
+                ", mailServerPort='" + mailServerPort + '\'' +
+                ", fromAddress='" + fromAddress + '\'' +
+                ", toAddress='" + toAddress + '\'' +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", validate=" + validate +
+                ", subject='" + subject + '\'' +
+                ", content='" + content + '\'' +
+                ", attachFileNames=" + Arrays.toString(attachFileNames) +
+                '}';
+    }
+}
 
