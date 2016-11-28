@@ -22,7 +22,9 @@ public class test {
 			//allocation5 = new byte[4 * _1MB];  // ???????Minor GC
 		 	Thread.sleep(10000);
 			System.out.println("111 = " + 111);
-	 	}
+			System.out.println("111 = " + 222);
+
+		}
 	 }
 
 	public static void main(String[] args)throws Exception {
