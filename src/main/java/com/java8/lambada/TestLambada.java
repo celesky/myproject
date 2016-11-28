@@ -1,7 +1,10 @@
 package com.java8.lambada;
 
+import javax.xml.transform.Result;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Created by pan on 16/8/22.
@@ -39,9 +42,17 @@ public class TestLambada {
 
         //list.forEach(str-> System.out.println("str = " + str));
         list.forEach(System.out::println);
+        list.forEach(p->System.out.println(p));
     }
 
-
+    public static void reduce(){
+        String[] caloris = {"1","2","3","4","5","6","0","0","7"};//.forEach(System.out::println)
+        //Stream.of(caloris).map(x->Integer.parseInt(x) ).filter(x->x>0).collect(Collectors.toList()).stream().forEach(System.out::println);
+        //Object aa = Stream.of(caloris).map(x->Integer.parseInt(x) ).filter(x->x>0).reduce(0,(result,element)->result=result+element).get();
+        Stream.of(caloris).map(x->Integer.parseInt(x) ).filter(x->x>0).reduce((result, element)->result=result+element);
+        //Stream.of(caloris).collect(Collectors.toList()).stream().mapToInt(e->e.)
+        //System.out.println("aa = " + aa);
+    }
 
 
 
@@ -52,7 +63,7 @@ public class TestLambada {
             System.out.println(str+":"+name);
         });
 
-        TestLambada.runPrint("hello ","jim");
+        TestLambada.runPrint("hello ","Äã´óÒ¯");
 
         TestLambada.operList();
     }
