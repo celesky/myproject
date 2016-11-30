@@ -32,9 +32,11 @@ public class UncaughtExceptionDemo {
 		  public ThreadA() {
 		  }
 	 
-		  public void run() {
-			  double i = 12 / 0;// 抛出异常的地方
-		  }
-	 
+
 	}
+
+	public void run() {
+		double i = 12 / 0;// 抛出异常的地方
+	}
+
 }
