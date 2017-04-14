@@ -3,6 +3,7 @@ package com;
 import javax.lang.model.SourceVersion;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class test {
 	private static final int _1MB = 1024 * 1024;
@@ -28,6 +29,13 @@ public class test {
 	 }
 
 	public static void main(String[] args)throws Exception {
-		testAllocation();
+		//testAllocation();
+		int i=0;
+		while(i<10){
+			int x = new Random().nextInt(2);
+			System.out.println("x = " + x);
+			i++;
+		}
+
 	}
 }
