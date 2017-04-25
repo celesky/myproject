@@ -14,12 +14,12 @@ public class RedisUtil {
     static Jedis jedis;
 
     static {
-        jedis = new Jedis("localhost", 6379);
+        jedis = new Jedis("192.168.30.182", 6379);
     }
 
     public static void testString() {
-        jedis.set("name", "xinxin");//Ïòkey-->nameÖÐ·ÅÈëÁËvalue-->xinxin
-        System.out.println(jedis.get("name"));//Ö´ÐÐ½á¹û£ºxinxin
+        jedis.set("name", "xinxin");//ï¿½ï¿½key-->nameï¿½Ð·ï¿½ï¿½ï¿½ï¿½ï¿½value-->xinxin
+        System.out.println(jedis.get("name"));//Ö´ï¿½Ð½ï¿½ï¿½ï¿½ï¿½xinxin
     }
     public static void testSetHash(){
         jedis.hset("product:5001","productId","2006101010101");
@@ -35,7 +35,6 @@ public class RedisUtil {
         jedis.hset("product:5002","productName","Iphone se");
         jedis.hset("product:5002","price","4000.00");
         jedis.hset("product:5002","stockNum","400");
-
 
     }
 

@@ -1,6 +1,9 @@
 package com;
 
+import com.sizeofobject.SizeOfObject;
+
 import javax.lang.model.SourceVersion;
+import java.lang.instrument.Instrumentation;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -30,12 +33,19 @@ public class test {
 
 	public static void main(String[] args)throws Exception {
 		//testAllocation();
-		int i=0;
-		while(i<10){
-			int x = new Random().nextInt(2);
-			System.out.println("x = " + x);
-			i++;
-		}
+//		int i=0;
+//		while(i<10){
+//			int x = new Random().nextInt(2);
+//			System.out.println("x = " + x);
+//			i++;
+//		}
+
+		Instrumentation inst = SizeOfObject.inst;
+		String a = new String("ab");
+		String b = new String("abedefghijkfied发大水桂丰大厦gre外国人fikfeikdslfiejfkldjsgaiejfedwiao;feiwjafewia;feiowajfeoiw;jfdjsklafjkdshakflie中国ffffffff");
+
+		System.out.println(inst.getObjectSize(a));
+		System.out.println(inst.getObjectSize(b));
 
 	}
 }

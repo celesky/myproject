@@ -15,6 +15,16 @@
           <version>1.0.1-SNAPSHOT</version>
       </dependency>
 
+      <dependency>
+          <groupId>com.lifesense.base</groupId>
+          <artifactId>lifesense-commons</artifactId>
+          <version>1.0.1-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+          <groupId>net.minidev</groupId>
+          <artifactId>json-smart</artifactId>
+          <version>1.1.1</version>
+      </dependency>
       <!--
       <dependency>
           <groupId>org.apache.logging.log4j</groupId>
