@@ -37,8 +37,8 @@ public class TestProgram {
 
     public static UserEntity getUser(){
         UserEntity user = new UserEntity();
-        user.setAppVersion("123");
-        user.setBirthday(new Date());
+//        user.setAppVersion("123");
+//        user.setBirthday(new Date());
         user.setCarrierCode("1adaf");
 //        user.setCreated(new Date());
 //        user.setEmail("aaaaa@qq.com");

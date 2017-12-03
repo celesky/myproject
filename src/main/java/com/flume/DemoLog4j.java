@@ -12,5 +12,4 @@
         public static void main(String[] args) {
             logger.error("hello!");
         }
-
     }

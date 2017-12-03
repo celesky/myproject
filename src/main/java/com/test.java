@@ -7,6 +7,8 @@ import java.lang.instrument.Instrumentation;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import com.lifesense.lssleepanalyze_ndk.LSSleepAnalyze;
+
 
 public class test {
 	private static final int _1MB = 1024 * 1024;
@@ -32,20 +34,9 @@ public class test {
 	 }
 
 	public static void main(String[] args)throws Exception {
-		//testAllocation();
-//		int i=0;
-//		while(i<10){
-//			int x = new Random().nextInt(2);
-//			System.out.println("x = " + x);
-//			i++;
-//		}
-
-		Instrumentation inst = SizeOfObject.inst;
-		String a = new String("ab");
-		String b = new String("abedefghijkfied发大水桂丰大厦gre外国人fikfeikdslfiejfkldjsgaiejfedwiao;feiwjafewia;feiowajfeoiw;jfdjsklafjkdshakflie中国ffffffff");
-
-		System.out.println(inst.getObjectSize(a));
-		System.out.println(inst.getObjectSize(b));
-
+		while(true){
+			System.out.println(Thread.currentThread().getId());
+			Thread.sleep(200);
+		}
 	}
 }
