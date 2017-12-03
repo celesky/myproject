@@ -23,13 +23,13 @@ public class StreamDemo {
     }
 
     public static void testInit() {
-        //¿ÉÒÔÀí½âÎªÒ»¸ö°üº¬12345µÄ¼¯ºÏ
+        //å¯ä»¥ç†è§£ä¸ºä¸€ä¸ªåŒ…å«12345çš„é›†åˆ
 //        Stream<Integer> stream = Stream.of(1,2,3,4,5);
 //          Stream.of(1,2,3,4,5).forEach(System.out::println);
 //        Stream<String> stream2 = Stream.of("heh","xii");
 //
 //        List<Integer> list = Lists.newArrayList(1,4,5,10,null,5,null);
-        //Ò»¸öÎŞÏŞµÄ¼¯ºÏ,²¢²»¶ÏµÄÍùÀïÃæÌí¼ÓÔªËØ,lazy¼ÓÔØ,Ö»ÓĞµ±ÓÃµ½µÄÊ±ºò²Å»áÌí¼Ó
+        //ä¸€ä¸ªæ— é™çš„é›†åˆ,å¹¶ä¸æ–­çš„å¾€é‡Œé¢æ·»åŠ å…ƒç´ ,lazyåŠ è½½,åªæœ‰å½“ç”¨åˆ°çš„æ—¶å€™æ‰ä¼šæ·»åŠ 
 //        Stream.generate(()->{return Math.random();}).forEach(System.out::println);
 //
 //        Stream<List> stream4 = Stream.generate(new Supplier<List>() {
@@ -38,7 +38,7 @@ public class StreamDemo {
 //                return list;
 //            }
 //        });
-        //°´Ö¸¶¨µÄËã·¨Ìí¼ÓÔªËØµ½¼¯ºÏ---°üº¬µÄÔªËØ¿ÉÒÔÈÏÎªÊÇ£ºseed£¬f(seed),f(f(seed))ÎŞÏŞÑ­»·
+        //æŒ‰æŒ‡å®šçš„ç®—æ³•æ·»åŠ å…ƒç´ åˆ°é›†åˆ---åŒ…å«çš„å…ƒç´ å¯ä»¥è®¤ä¸ºæ˜¯ï¼šseedï¼Œf(seed),f(f(seed))æ— é™å¾ªç¯
         //Stream.iterate(1, item -> item + 2).limit(10).forEach(System.out::println);
 
 //        List<Integer> nums = Lists.newArrayList(1, 1, null, 2, 3, 4, null, 5, 6, 7, 8, 9, 10);
@@ -69,16 +69,16 @@ public class StreamDemo {
         Stream.of(str).forEach(System.out::println);
         //System.out.println("str = " + str);
         for (String[] s:str
-             ) {
+                ) {
             System.out.println("s.length = " + s.length);
         }
     }
 
     public static void main(String[] args){
         //StreamDemo.testInit();
-         String[] str1 = new String[]{"ab","cd"};
-         String[] str2 = new String[]{"ef","hi","jk"};
-         StreamDemo.gennerate(str1,str2);
+        String[] str1 = new String[]{"ab","cd"};
+        String[] str2 = new String[]{"ef","hi","jk"};
+        StreamDemo.gennerate(str1,str2);
     }
 
 }
