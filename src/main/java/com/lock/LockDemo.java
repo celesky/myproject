@@ -17,14 +17,14 @@ public class LockDemo {
 
 //		Thread mt = new Thread(new ModThread());
 //		mt.start();
-//		
+//
 //		int i=0;
 //		while(asleep){
-//			System.out.println("ÊıÑòÖĞ¡£¡£¡£"+i++ +"Ö»Ñò");
+//			System.out.println("æ•°ç¾Šä¸­ã€‚ã€‚ã€‚"+i++ +"åªç¾Š");
 //			Thread.sleep(1000);
 //		}
-//		System.out.println("Ë¯×ÅÁË");
-//		
+//		System.out.println("ç¡ç€äº†");
+//
 //		ConcurrentHashMap a = new ConcurrentHashMap();
 
 //		ReentrantLock rl =  new ReentrantLock();
@@ -40,7 +40,7 @@ public class LockDemo {
         Matcher matcher2 = pattern.matcher("CZ#100#13807717744");
         boolean b1 = matcher1.matches();
         boolean b2 = matcher2.matches();
-        //µ±Ìõ¼şÂú×ãÊ±£¬½«·µ»Øtrue£¬·ñÔò·µ»Øfalse
+        //å½“æ¡ä»¶æ»¡è¶³æ—¶ï¼Œå°†è¿”å›trueï¼Œå¦åˆ™è¿”å›false
         System.out.println(b1);
         System.out.println(b2);
     }

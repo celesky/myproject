@@ -2,7 +2,7 @@ package com.httpclient;
 
 import java.util.HashMap;
 import java.util.Map;
-//¶Ô½Ó¿Ú½øĞĞ²âÊÔ
+//å¯¹æ¥å£è¿›è¡Œæµ‹è¯•
 public class TestMain {
     private String url = "https://graph.facebook.com/debug_token?access_token=0App&input_token=XXX";
     private String charset = "utf-8";

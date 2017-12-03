@@ -3,20 +3,20 @@ package com.proxy.staticproxy.proxy;
 import com.proxy.staticproxy.BookFacade;
 
 public class BookProxy implements BookFacade{
-	private BookFacade bookFacade;  
-	
+	private BookFacade bookFacade;
+
 	public BookProxy(BookFacade bookFacade){
 		this.bookFacade = bookFacade;
 	}
-	
-	
+
+
 	@Override
 	public void addBook() {
-		 System.out.println("事务处理之前");  
-	        // 调用委托类的方法;  
-		 bookFacade.addBook();
-		 
-	     System.out.println("事务处理之后");  
+		System.out.println("浜嬪姟澶勭悊涔嬪墠");
+		// 璋冪敤濮旀墭绫荤殑鏂规硶;
+		bookFacade.addBook();
+
+		System.out.println("浜嬪姟澶勭悊涔嬪悗");
 	}
 
 }

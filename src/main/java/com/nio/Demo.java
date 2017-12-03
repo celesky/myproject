@@ -6,27 +6,27 @@ import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
 public class Demo {
-	
+
 	public static void readFileInBuffer() throws Exception {
-		//´ÓFileInputStream »ñÈ¡Í¨µÀ£º
+		//ä»FileInputStream è·å–é€šé“ï¼š
 		FileInputStream fin = new FileInputStream("D:\\test.txt");
 		FileChannel fc = fin.getChannel();
-		
-		//´´½¨»º³åÇø
+
+		//åˆ›å»ºç¼“å†²åŒº
 		ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
-		
+
 		fc.read(byteBuffer);
 	}
 	public static void writeFileInBuffer() throws Exception {
-		//´ÓFileInputStream »ñÈ¡Í¨µÀ£º
+		//ä»FileInputStream è·å–é€šé“ï¼š
 		FileOutputStream fout = new FileOutputStream( "writesomebytes.txt" );
 		FileChannel fc = fout.getChannel();
-		
-		//´´½¨»º³åÇø
+
+		//åˆ›å»ºç¼“å†²åŒº
 		ByteBuffer buffer = ByteBuffer.allocate( 1024 );
 		Byte[] message = new Byte[]{1,2,3,4,5};
 		for (int i=0; i<message.length; ++i) {
-		     buffer.put( message[i] );
+			buffer.put( message[i] );
 		}
 		buffer.flip();
 		fc.write( buffer );

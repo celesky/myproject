@@ -27,15 +27,15 @@ public class MyWebSocketServerHandler extends SimpleChannelInboundHandler<Object
     private WebSocketServerHandshaker handshaker;
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        // Ìí¼Ó
+        // æ·»åŠ 
         Global.group.add(ctx.channel());
-        System.out.println("¿Í»§¶ËÓë·þÎñ¶ËÁ¬½Ó¿ªÆô");
+        System.out.println("å®¢æˆ·ç«¯ä¸ŽæœåŠ¡ç«¯è¿žæŽ¥å¼€å¯");
     }
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        // ÒÆ³ý
+        // ç§»é™¤
         Global.group.remove(ctx.channel());
-        System.out.println("¿Í»§¶ËÓë·þÎñ¶ËÁ¬½Ó¹Ø±Õ");
+        System.out.println("å®¢æˆ·ç«¯ä¸ŽæœåŠ¡ç«¯è¿žæŽ¥å…³é—­");
     }
     @Override
     protected void messageReceived(ChannelHandlerContext ctx, Object msg)
@@ -52,39 +52,39 @@ public class MyWebSocketServerHandler extends SimpleChannelInboundHandler<Object
     }
     private void handlerWebSocketFrame(ChannelHandlerContext ctx,
                                        WebSocketFrame frame) {
-        // ÅÐ¶ÏÊÇ·ñ¹Ø±ÕÁ´Â·µÄÖ¸Áî
+        // åˆ¤æ–­æ˜¯å¦å…³é—­é“¾è·¯çš„æŒ‡ä»¤
         if (frame instanceof CloseWebSocketFrame) {
             handshaker.close(ctx.channel(), (CloseWebSocketFrame) frame
                     .retain());
         }
-        // ÅÐ¶ÏÊÇ·ñpingÏûÏ¢
+        // åˆ¤æ–­æ˜¯å¦pingæ¶ˆæ¯
         if (frame instanceof PingWebSocketFrame) {
             ctx.channel().write(
                     new PongWebSocketFrame(frame.content().retain()));
             return;
         }
-        // ±¾Àý³Ì½öÖ§³ÖÎÄ±¾ÏûÏ¢£¬²»Ö§³Ö¶þ½øÖÆÏûÏ¢
+        // æœ¬ä¾‹ç¨‹ä»…æ”¯æŒæ–‡æœ¬æ¶ˆæ¯ï¼Œä¸æ”¯æŒäºŒè¿›åˆ¶æ¶ˆæ¯
         if (!(frame instanceof TextWebSocketFrame)) {
-            System.out.println("±¾Àý³Ì½öÖ§³ÖÎÄ±¾ÏûÏ¢£¬²»Ö§³Ö¶þ½øÖÆÏûÏ¢");
+            System.out.println("æœ¬ä¾‹ç¨‹ä»…æ”¯æŒæ–‡æœ¬æ¶ˆæ¯ï¼Œä¸æ”¯æŒäºŒè¿›åˆ¶æ¶ˆæ¯");
             throw new UnsupportedOperationException(String.format(
                     "%s frame types not supported", frame.getClass().getName()));
         }
-        // ·µ»ØÓ¦´ðÏûÏ¢
+        // è¿”å›žåº”ç­”æ¶ˆæ¯
         String request = ((TextWebSocketFrame) frame).text();
-        System.out.println("·þÎñ¶ËÊÕµ½£º" + request);
+        System.out.println("æœåŠ¡ç«¯æ”¶åˆ°ï¼š" + request);
         if (logger.isLoggable(Level.FINE)) {
             logger
                     .fine(String.format("%s received %s", ctx.channel(),
                             request));
         }
 //        TextWebSocketFrame tws = new TextWebSocketFrame(new Date().toString()
-//                + ctx.channel().id() + "£º" + request);
+//                + ctx.channel().id() + "ï¼š" + request);
         String dt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
         TextWebSocketFrame tws = new TextWebSocketFrame(dt+":"
-                + ctx.channel().id() + "£ºhello£¡----" + request);
-        // Èº·¢
+                + ctx.channel().id() + "ï¼šhelloï¼----" + request);
+        // ç¾¤å‘
         Global.group.writeAndFlush(tws);
-        // ·µ»Ø¡¾Ë­·¢µÄ·¢¸øË­¡¿
+        // è¿”å›žã€è°å‘çš„å‘ç»™è°ã€‘
         // ctx.channel().writeAndFlush(tws);
     }
 
@@ -106,11 +106,11 @@ public class MyWebSocketServerHandler extends SimpleChannelInboundHandler<Object
 //            handshaker.handshake(ctx.channel(), req);
             ChannelFuture channelFuture = handshaker.handshake(ctx.channel(), req);
 
-            // ÎÕÊÖ³É¹¦Ö®ºó,ÒµÎñÂß¼­ ×¢²á
+            // æ¡æ‰‹æˆåŠŸä¹‹åŽ,ä¸šåŠ¡é€»è¾‘ æ³¨å†Œ
             if (channelFuture.isSuccess()) {
                 //if (client.getId() == 0) {
-                    System.out.println(ctx.channel() + " ÓÎ¿Í");
-                    return;
+                System.out.println(ctx.channel() + " æ¸¸å®¢");
+                return;
                 //}
 
                 //loginClientMap.put(ctx.channel().id().asShortText(), client);
@@ -119,14 +119,14 @@ public class MyWebSocketServerHandler extends SimpleChannelInboundHandler<Object
     }
     private static void sendHttpResponse(ChannelHandlerContext ctx,
                                          FullHttpRequest req, DefaultFullHttpResponse res) {
-        // ·µ»ØÓ¦´ð¸ø¿Í»§¶Ë
+        // è¿”å›žåº”ç­”ç»™å®¢æˆ·ç«¯
         if (res.getStatus().code() != 200) {
             ByteBuf buf = Unpooled.copiedBuffer(res.getStatus().toString(),
                     CharsetUtil.UTF_8);
             res.content().writeBytes(buf);
             buf.release();
         }
-        // Èç¹ûÊÇ·ÇKeep-Alive£¬¹Ø±ÕÁ¬½Ó
+        // å¦‚æžœæ˜¯éžKeep-Aliveï¼Œå…³é—­è¿žæŽ¥
         ChannelFuture f = ctx.channel().writeAndFlush(res);
         if (!isKeepAlive(req) || res.getStatus().code() != 200) {
             f.addListener(ChannelFutureListener.CLOSE);

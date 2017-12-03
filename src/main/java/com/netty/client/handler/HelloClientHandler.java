@@ -15,7 +15,7 @@ public class HelloClientHandler extends SimpleChannelHandler {
 
 
     /**
-     * µ±°ó¶¨µ½·şÎñ¶ËµÄÊ±ºò´¥·¢£¬´òÓ¡"Hello world, I'm client."
+     * å½“ç»‘å®šåˆ°æœåŠ¡ç«¯çš„æ—¶å€™è§¦å‘ï¼Œæ‰“å°"Hello world, I'm client."
      *
      * @alia OneCoder
      * @author lihzh
@@ -24,13 +24,13 @@ public class HelloClientHandler extends SimpleChannelHandler {
     public void channelConnected(ChannelHandlerContext ctx,
                                  ChannelStateEvent e) {
         //System.out.println("Hello world, I'm client.");
-        //Æô¶¯Ä£Äâ¿Í»§¶ËÏß³Ì
+        //å¯åŠ¨æ¨¡æ‹Ÿå®¢æˆ·ç«¯çº¿ç¨‹
         new ClientRobotThread().setCtx(ctx).start();
     }
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, ExceptionEvent e) {
-        System.out.println("·¢ÉúÒì³£ÁË");
+        System.out.println("å‘ç”Ÿå¼‚å¸¸äº†");
         e.getCause().printStackTrace();
         Channel ch = e.getChannel();
         ch.close();

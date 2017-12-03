@@ -5,6 +5,6 @@ package com.netty.websocket;
  */
 public class T {
     public static void main(String[] args) {
-        System.out.println(" �Ǻǻ� ");
+        System.out.println(" 呵呵还 ");
     }
 }

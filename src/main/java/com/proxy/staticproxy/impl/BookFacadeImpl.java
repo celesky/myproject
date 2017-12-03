@@ -3,8 +3,8 @@ package com.proxy.staticproxy.impl;
 import com.proxy.staticproxy.BookFacade;
 
 /**
- * Êé¼®²Ù×÷ÊµÏÖÀà
- * ±»´úÀí¶ÔÏó
+ * ä¹¦ç±æ“ä½œå®ç°ç±»
+ * è¢«ä»£ç†å¯¹è±¡
  * @author Celes
  *
  */
@@ -12,7 +12,7 @@ public class BookFacadeImpl implements BookFacade{
 
 	@Override
 	public void addBook() {
-		System.out.println("Ôö¼ÓÍ¼ÊéµÄÆÕÍ¨·½·¨...");  
+		System.out.println("å¢åŠ å›¾ä¹¦çš„æ™®é€šæ–¹æ³•...");
 	}
 
 }

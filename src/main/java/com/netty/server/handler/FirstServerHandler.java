@@ -16,7 +16,7 @@ public class FirstServerHandler extends SimpleChannelHandler {
     public void channelConnected(
             ChannelHandlerContext ctx, ChannelStateEvent e) throws Exception {
         ServerConnectionManager.addCtx(ctx);
-        //·¢ËÍÒ»ÌõÓ¦´ğ¹ıÈ¥¸æËß¿Í»§¶Ë
+        //å‘é€ä¸€æ¡åº”ç­”è¿‡å»å‘Šè¯‰å®¢æˆ·ç«¯
         String msg = "00380000|0000|hello, you connected server!";
         ChannelBuffer buf = buffer(msg.getBytes().length);
         buf.writeBytes(msg.getBytes());
@@ -33,10 +33,10 @@ public class FirstServerHandler extends SimpleChannelHandler {
         ChatMessage chatMessage = (ChatMessage)e.getMessage();
         System.out.println("[server][messageReceived-------------]= " + chatMessage.getMsg());
 
-        //×ª·¢¸øÏÂÒ»¸öhandler
+        //è½¬å‘ç»™ä¸‹ä¸€ä¸ªhandler
         ctx.sendUpstream(e);
 
-        //ÔÚÕâÀï½øĞĞ×ª·¢
+        //åœ¨è¿™é‡Œè¿›è¡Œè½¬å‘
 
     }
 
@@ -45,7 +45,7 @@ public class FirstServerHandler extends SimpleChannelHandler {
         if(map!=null&&map.size()>0){
             for (Long key : map.keySet()) {
                 ChannelHandlerContext ctx = map.get(key);
-                //·¢ËÍÒ»ÌõÓ¦´ğ¹ıÈ¥¸æËß¿Í»§¶Ë
+                //å‘é€ä¸€æ¡åº”ç­”è¿‡å»å‘Šè¯‰å®¢æˆ·ç«¯
                 String msg = "0000|0000|hello, no:"+key+"!this is the msg from server!";
                 int len = msg.length();
                 String lenl = "0";

@@ -22,12 +22,12 @@ public class Server {
         ChannelFactory factory = new NioServerSocketChannelFactory(
                 Executors.newCachedThreadPool(),
                 Executors.newCachedThreadPool());
-        // Server·şÎñÆô¶¯Æ÷  
+        // ServeræœåŠ¡å¯åŠ¨å™¨
         ServerBootstrap bootstrap = new ServerBootstrap(factory);
-        // ÉèÖÃÒ»¸ö´¦Àí¿Í»§¶ËÏûÏ¢ºÍ¸÷ÖÖÏûÏ¢ÊÂ¼şµÄÀà(Handler)  
+        // è®¾ç½®ä¸€ä¸ªå¤„ç†å®¢æˆ·ç«¯æ¶ˆæ¯å’Œå„ç§æ¶ˆæ¯äº‹ä»¶çš„ç±»(Handler)
         bootstrap.setPipelineFactory(()->Channels.pipeline(new MessageDecoder(),new FirstServerHandler(),new ChatMsgHandler()));
 
-        // ¿ª·Å8000¶Ë¿Ú¹©¿Í»§¶Ë·ÃÎÊ¡£  
+        // å¼€æ”¾8000ç«¯å£ä¾›å®¢æˆ·ç«¯è®¿é—®ã€‚
         Channel channel = bootstrap.bind(new InetSocketAddress(8000));
 
         allChannels.add(channel);

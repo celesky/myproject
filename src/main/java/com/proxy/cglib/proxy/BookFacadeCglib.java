@@ -7,39 +7,39 @@ import org.springframework.cglib.proxy.MethodInterceptor;
 import org.springframework.cglib.proxy.MethodProxy;
 
 /**
- * ´úÀíÀà
- * ¿ÉÒÔÔöÇ¿±»´úÀíµÄ¶ÔÏóµÄĞĞÎª
+ * ä»£ç†ç±»
+ * å¯ä»¥å¢å¼ºè¢«ä»£ç†çš„å¯¹è±¡çš„è¡Œä¸º
  * @author Celes
  *
  */
 public class BookFacadeCglib implements MethodInterceptor  {
 
-		private Object target;  
-	  
-	    /** 
-	     * ´´½¨´úÀí¶ÔÏó 
-	     *  
-	     * @param target 
-	     * @return 
-	     */  
-	    public Object getInstance(Object target) {  
-	        this.target = target;  
-	        Enhancer enhancer = new Enhancer();  
-	        enhancer.setSuperclass(this.target.getClass());  
-	        // »Øµ÷·½·¨  
-	        enhancer.setCallback(this);  
-	        // ´´½¨´úÀí¶ÔÏó  
-	        return enhancer.create();  
-	    }  
-	  
-	    @Override  
-	    // »Øµ÷·½·¨  
-	    public Object intercept(Object obj, Method method, Object[] args,  
-	            MethodProxy proxy) throws Throwable {  
-	        System.out.println("ÊÂÎï¿ªÊ¼");  
-	        proxy.invokeSuper(obj, args);  
-	        System.out.println("ÊÂÎï½áÊø");  
-	        return null;  
-	    }  
-	  
+	private Object target;
+
+	/**
+	 * åˆ›å»ºä»£ç†å¯¹è±¡
+	 *
+	 * @param target
+	 * @return
+	 */
+	public Object getInstance(Object target) {
+		this.target = target;
+		Enhancer enhancer = new Enhancer();
+		enhancer.setSuperclass(this.target.getClass());
+		// å›è°ƒæ–¹æ³•
+		enhancer.setCallback(this);
+		// åˆ›å»ºä»£ç†å¯¹è±¡
+		return enhancer.create();
+	}
+
+	@Override
+	// å›è°ƒæ–¹æ³•
+	public Object intercept(Object obj, Method method, Object[] args,
+							MethodProxy proxy) throws Throwable {
+		System.out.println("äº‹ç‰©å¼€å§‹");
+		proxy.invokeSuper(obj, args);
+		System.out.println("äº‹ç‰©ç»“æŸ");
+		return null;
+	}
+
 }

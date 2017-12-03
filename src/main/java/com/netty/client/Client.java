@@ -20,9 +20,9 @@ public class Client {
         ChannelFactory factory =  new NioClientSocketChannelFactory(
                 Executors.newCachedThreadPool(),
                 Executors.newCachedThreadPool());
-        // Client·şÎñÆô¶¯Æ÷  
+        // ClientæœåŠ¡å¯åŠ¨å™¨
         ClientBootstrap bootstrap = new ClientBootstrap(factory );
-        // ÉèÖÃÒ»¸ö´¦Àí·şÎñ¶ËÏûÏ¢ºÍ¸÷ÖÖÏûÏ¢ÊÂ¼şµÄÀà(Handler)  
+        // è®¾ç½®ä¸€ä¸ªå¤„ç†æœåŠ¡ç«¯æ¶ˆæ¯å’Œå„ç§æ¶ˆæ¯äº‹ä»¶çš„ç±»(Handler)
 //        bootstrap.setPipelineFactory(new ChannelPipelineFactory() {
 //            @Override
 //            public ChannelPipeline getPipeline() throws Exception {
@@ -35,7 +35,7 @@ public class Client {
                 new HelloClientHandler()
         ));
 
-        // Á¬½Óµ½±¾µØµÄ8000¶Ë¿ÚµÄ·şÎñ¶Ë  
+        // è¿æ¥åˆ°æœ¬åœ°çš„8000ç«¯å£çš„æœåŠ¡ç«¯
         ChannelFuture future = bootstrap.connect(new InetSocketAddress(
                 "127.0.0.1", 8000));
 
@@ -46,7 +46,7 @@ public class Client {
 //        future.getChannel().getCloseFuture().awaitUninterruptibly();
 //        factory.releaseExternalResources();
 
-        //Æô¶¯Ä£Äâ¿Í»§¶ËÏß³Ì  ÔÚhandlerÀïÃæÆô¶¯
+        //å¯åŠ¨æ¨¡æ‹Ÿå®¢æˆ·ç«¯çº¿ç¨‹  åœ¨handleré‡Œé¢å¯åŠ¨
         //new ClientRobotThread().setCtx(ctx).start();
 
     }

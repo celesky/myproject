@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * Àà¼ÓÔØÆ÷Óëinstanceof¹Ø¼ü×ÖÑÝÊ¾
- * 
+ * ç±»åŠ è½½å™¨ä¸Žinstanceofå…³é”®å­—æ¼”ç¤º
+ *
  * @author zzm
  */
 public class ClassLoaderTest {
@@ -34,9 +34,9 @@ public class ClassLoaderTest {
 //
 //        System.out.println(obj.getClass());
 //        System.out.println(obj instanceof com.classloader.ClassLoaderTest);
-//        
+//
         Object obj = myLoader.loadClass("java.lang.Character").newInstance();
         System.out.println(obj.getClass());
-        
+
     }
 }

@@ -16,14 +16,14 @@ public class TestLambada {
         new Thread(()-> {
             System.out.println("thread begin...");
             System.out.println("heihei");
-            }).start();
+        }).start();
     }
     public static void runThreadUseInnerClass() {
-        //ÕâÖÖ·½Ê½¾Í²»¶à½²ÁË£¬ÒÔÇ°¾É°æ±¾±È½Ï³£¼ûµÄ×ö·¨
+        //è¿™ç§æ–¹å¼å°±ä¸å¤šè®²äº†ï¼Œä»¥å‰æ—§ç‰ˆæœ¬æ¯”è¾ƒå¸¸è§çš„åšæ³•
         new Thread(new Runnable() {
             @Override
             public void run() {
-                System.out.println("ÄÚ²¿ÀàÊµÏÖµÄÏß³Ì");
+                System.out.println("å†…éƒ¨ç±»å®ç°çš„çº¿ç¨‹");
             }
         }).start();
     }
@@ -63,7 +63,7 @@ public class TestLambada {
             System.out.println(str+":"+name);
         });
 
-        TestLambada.runPrint("hello ","Äã´óÒ¯");
+        TestLambada.runPrint("hello ","ä½ å¤§çˆ·");
 
         TestLambada.operList();
     }

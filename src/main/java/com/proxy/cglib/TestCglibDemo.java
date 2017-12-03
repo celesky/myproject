@@ -5,27 +5,27 @@ import com.proxy.cglib.byproxy.MsgFacadeImpl;
 import com.proxy.cglib.proxy.BookFacadeCglib;
 
 /**
- * cglib¶¯Ì¬´úÀí
- *1. Ò»¸ö´úÀíÀà¾Í¿ÉÒÔ´úÀí¶à¸ö²»Í¬µÄ±»´úÀí¶ÔÏó
- *2. ¶ÔÓÚĞèÒªÍ¬ÑùµÄÔöÇ¿´úÂë£¬Ö»ĞèÒªÔÚÒ»¸ö´úÀíÀàÖĞÊµÏÖ¾Í¿ÉÒÔ¡£
- * 
- * JDKµÄ¶¯Ì¬´úÀí»úÖÆÖ»ÄÜ´úÀíÊµÏÖÁË½Ó¿ÚµÄÀà£¬¶ø²»ÄÜÊµÏÖ½Ó¿ÚµÄÀà¾Í²»ÄÜÊµÏÖJDKµÄ¶¯Ì¬´úÀí£¬
- * cglibÊÇÕë¶ÔÀàÀ´ÊµÏÖ´úÀíµÄ£¬ËûµÄÔ­ÀíÊÇ¶ÔÖ¸¶¨µÄÄ¿±êÀàÉú³ÉÒ»¸ö×ÓÀà£¬²¢¸²¸ÇÆäÖĞ·½·¨ÊµÏÖÔöÇ¿£¬
- * µ«ÒòÎª²ÉÓÃµÄÊÇ¼Ì³Ğ£¬ËùÒÔ²»ÄÜ¶ÔfinalĞŞÊÎµÄÀà½øĞĞ´úÀí¡£ 
+ * cglibåŠ¨æ€ä»£ç†
+ *1. ä¸€ä¸ªä»£ç†ç±»å°±å¯ä»¥ä»£ç†å¤šä¸ªä¸åŒçš„è¢«ä»£ç†å¯¹è±¡
+ *2. å¯¹äºéœ€è¦åŒæ ·çš„å¢å¼ºä»£ç ï¼Œåªéœ€è¦åœ¨ä¸€ä¸ªä»£ç†ç±»ä¸­å®ç°å°±å¯ä»¥ã€‚
+ *
+ * JDKçš„åŠ¨æ€ä»£ç†æœºåˆ¶åªèƒ½ä»£ç†å®ç°äº†æ¥å£çš„ç±»ï¼Œè€Œä¸èƒ½å®ç°æ¥å£çš„ç±»å°±ä¸èƒ½å®ç°JDKçš„åŠ¨æ€ä»£ç†ï¼Œ
+ * cglibæ˜¯é’ˆå¯¹ç±»æ¥å®ç°ä»£ç†çš„ï¼Œä»–çš„åŸç†æ˜¯å¯¹æŒ‡å®šçš„ç›®æ ‡ç±»ç”Ÿæˆä¸€ä¸ªå­ç±»ï¼Œå¹¶è¦†ç›–å…¶ä¸­æ–¹æ³•å®ç°å¢å¼ºï¼Œ
+ * ä½†å› ä¸ºé‡‡ç”¨çš„æ˜¯ç»§æ‰¿ï¼Œæ‰€ä»¥ä¸èƒ½å¯¹finalä¿®é¥°çš„ç±»è¿›è¡Œä»£ç†ã€‚
  * @author Celes
  *
  */
 public class TestCglibDemo {
-	
-	 public static void main(String[] args) {  
-		    //newÒ»¸ö´úÀíÀà
-	        BookFacadeCglib cglib=new BookFacadeCglib();  
-	        //Éú³É´úÀíÖ®ºóµÄbookimpl
-	        BookFacadeImpl bookProxyImpl=(BookFacadeImpl)cglib.getInstance(new BookFacadeImpl());  
-	        bookProxyImpl.addBook();  
-	        bookProxyImpl.delBook();
-	        //Éú³É´úÀíÖ®ºóµÄmsgImpl
-	        MsgFacadeImpl msgProxyImpl=(MsgFacadeImpl)cglib.getInstance(new MsgFacadeImpl());  
-	        msgProxyImpl.sendMsg();
-	}  
+
+	public static void main(String[] args) {
+		//newä¸€ä¸ªä»£ç†ç±»
+		BookFacadeCglib cglib=new BookFacadeCglib();
+		//ç”Ÿæˆä»£ç†ä¹‹åçš„bookimpl
+		BookFacadeImpl bookProxyImpl=(BookFacadeImpl)cglib.getInstance(new BookFacadeImpl());
+		bookProxyImpl.addBook();
+		bookProxyImpl.delBook();
+		//ç”Ÿæˆä»£ç†ä¹‹åçš„msgImpl
+		MsgFacadeImpl msgProxyImpl=(MsgFacadeImpl)cglib.getInstance(new MsgFacadeImpl());
+		msgProxyImpl.sendMsg();
+	}
 }

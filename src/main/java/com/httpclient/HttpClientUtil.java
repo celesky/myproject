@@ -14,7 +14,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 /*
- * 利用HttpClient进行post请求的工具类
+ * 鍒╃敤HttpClient杩涜post璇锋眰鐨勫伐鍏风被
  */
 public class HttpClientUtil {
     public String doPost(String url,Map<String,String> map,String charset){
@@ -24,7 +24,7 @@ public class HttpClientUtil {
         try{
             httpClient = new SSLClient();
             httpPost = new HttpPost(url);
-            //设置参数
+            //璁剧疆鍙傛暟
             List<NameValuePair> list = new ArrayList<NameValuePair>();
             Iterator iterator = map.entrySet().iterator();
             while(iterator.hasNext()){

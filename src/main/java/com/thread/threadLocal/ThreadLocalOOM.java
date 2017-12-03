@@ -6,7 +6,7 @@ import java.util.concurrent.Executors;
 
 /**
  * Created by pan on 16/9/9.
- * ÄÚ´æÒç³ödemo
+ * å†…å­˜æº¢å‡ºdemo
  */
 public class ThreadLocalOOM {
     public static void main(String[] args) {

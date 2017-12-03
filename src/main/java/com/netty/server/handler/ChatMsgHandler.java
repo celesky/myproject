@@ -10,7 +10,7 @@ import org.jboss.netty.channel.SimpleChannelHandler;
 public class ChatMsgHandler extends SimpleChannelHandler {
     public void messageReceived(
             ChannelHandlerContext ctx, MessageEvent e) throws Exception {
-        //System.out.println("chatMsgHandler »¹ÓĞ½´ÓÍ´òÂğ" );
+        //System.out.println("chatMsgHandler è¿˜æœ‰é…±æ²¹æ‰“å—" );
 
     }
 }

@@ -1,17 +1,17 @@
 package com.proxy.cglib.byproxy;
 
 /**
- * ±»´úÀíÀà  ÓÃcglibÎŞĞèÊµÏÖ½Ó¿Ú
+ * è¢«ä»£ç†ç±»  ç”¨cglibæ— éœ€å®ç°æ¥å£
  * @author Celes
  *
  */
 public class BookFacadeImpl {
-	
-	 public void addBook() {  
-	     System.out.println("Ôö¼ÓÍ¼ÊéµÄÆÕÍ¨·½·¨...");  
-	 }  
-	 
-	 public void delBook() {  
-	     System.out.println("É¾³ıÍ¼ÊéµÄÆÕÍ¨·½·¨...");  
-	 }  
+
+	public void addBook() {
+		System.out.println("å¢åŠ å›¾ä¹¦çš„æ™®é€šæ–¹æ³•...");
+	}
+
+	public void delBook() {
+		System.out.println("åˆ é™¤å›¾ä¹¦çš„æ™®é€šæ–¹æ³•...");
+	}
 }

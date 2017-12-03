@@ -6,7 +6,7 @@ public class MsgFacadeImpl implements MsgFacade{
 
 	@Override
 	public void sendMsg() {
-		System.out.println("·¢ËÍÏûÏ¢µÄÆÕÍ¨·½·¨...");  
+		System.out.println("å‘é€æ¶ˆæ¯çš„æ™®é€šæ–¹æ³•...");
 	}
 
 }

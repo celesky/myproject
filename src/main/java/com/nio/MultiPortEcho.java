@@ -47,7 +47,7 @@ public class MultiPortEcho
         SelectionKey key = (SelectionKey)it.next();
 
         if ((key.readyOps() & SelectionKey.OP_ACCEPT)
-          == SelectionKey.OP_ACCEPT) {
+                == SelectionKey.OP_ACCEPT) {
           // Accept the new connection
           ServerSocketChannel ssc = (ServerSocketChannel)key.channel();
           SocketChannel sc = ssc.accept();
@@ -59,8 +59,8 @@ public class MultiPortEcho
 
           System.out.println( "Got connection from "+sc );
         } else if ((key.readyOps() & SelectionKey.OP_READ)
-          == SelectionKey.OP_READ) {
-          //ÔÚÏÖÊµ³¡¾°ÖĞ£¬´´½¨Ò»¸öÏß³Ì³ØÀ´¸ºÔğ I/O ÊÂ¼ş´¦ÀíÖĞµÄºÄÊ±²¿·Ö»á¸üÓĞÒâÒå¡£	
+                == SelectionKey.OP_READ) {
+          //åœ¨ç°å®åœºæ™¯ä¸­ï¼Œåˆ›å»ºä¸€ä¸ªçº¿ç¨‹æ± æ¥è´Ÿè´£ I/O äº‹ä»¶å¤„ç†ä¸­çš„è€—æ—¶éƒ¨åˆ†ä¼šæ›´æœ‰æ„ä¹‰ã€‚
           // Read the data
           SocketChannel sc = (SocketChannel)key.channel();
 

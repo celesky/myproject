@@ -27,7 +27,7 @@ public class NettyServer {
             b.channel(NioServerSocketChannel.class);
             b.childHandler(new ChildChannelHandler());
 
-            System.out.println("服务端开启等待客户端连接 ... ...");
+            System.out.println("鏈嶅姟绔紑鍚瓑寰呭鎴风杩炴帴 ... ...");
 
             Channel ch = b.bind(7397).sync().channel();
 

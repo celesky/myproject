@@ -12,7 +12,7 @@ public class HelloServerHandler extends
         SimpleChannelHandler {
 
     /**
-     * µ±ÓĞ¿Í»§¶Ë°ó¶¨µ½·şÎñ¶ËµÄÊ±ºò´¥·¢£¬´òÓ¡"Hello"
+     * å½“æœ‰å®¢æˆ·ç«¯ç»‘å®šåˆ°æœåŠ¡ç«¯çš„æ—¶å€™è§¦å‘ï¼Œæ‰“å°"Hello"
      *
      * @alia OneCoder
      * @author lihzh
@@ -27,13 +27,13 @@ public class HelloServerHandler extends
         time.writeInt((int) (System.currentTimeMillis() / 1000L + 2208988800L));
 
         ChannelFuture f = ch.write(time);
-        //lambada·½Ê½,×Ô¼ºĞ´ÊµÏÖ
+        //lambadaæ–¹å¼,è‡ªå·±å†™å®ç°
 //        f.addListener((ChannelFuture future) -> {
 //            Channel chl = future.getChannel();
 //            chl.close();
 //            System.out.println("channel closed");
 //        });
-//        //ÓÃÔ­ÓĞµÄÊµÏÖ
+//        //ç”¨åŸæœ‰çš„å®ç°
 //        f.addListener(ChannelFutureListener.CLOSE);
 
     }

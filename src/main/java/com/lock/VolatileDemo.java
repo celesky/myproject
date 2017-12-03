@@ -1,13 +1,13 @@
 package com.lock;
 
 public class VolatileDemo extends Thread {
-    //ÉèÖÃÀà¾²Ì¬±äÁ¿,¸÷Ïß³Ì·ÃÎÊÕâÍ¬Ò»¹²Ïí±äÁ¿
+    //è®¾ç½®ç±»é™æ€å˜é‡,å„çº¿ç¨‹è®¿é—®è¿™åŒä¸€å…±äº«å˜é‡
     private volatile boolean flag = false;
 
-    //ÎŞÏŞÑ­»·,µÈ´ıflag±äÎªtrueÊ±²ÅÌø³öÑ­»·
+    //æ— é™å¾ªç¯,ç­‰å¾…flagå˜ä¸ºtrueæ—¶æ‰è·³å‡ºå¾ªç¯
     public void run() {
         while (!flag) {
-            System.out.println("Ñ­»·Ö´ĞĞÖĞ....");
+            System.out.println("å¾ªç¯æ‰§è¡Œä¸­....");
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
@@ -22,7 +22,7 @@ public class VolatileDemo extends Thread {
     public static void main(String[] args) throws Exception {
         VolatileDemo demo = new VolatileDemo();
         demo.start();
-        //sleepµÄÄ¿µÄÊÇµÈ´ıÏß³ÌÆô¶¯Íê±Ï,Ò²¾ÍÊÇËµ½øÈërunµÄÎŞÏŞÑ­»·ÌåÁË
+        //sleepçš„ç›®çš„æ˜¯ç­‰å¾…çº¿ç¨‹å¯åŠ¨å®Œæ¯•,ä¹Ÿå°±æ˜¯è¯´è¿›å…¥runçš„æ— é™å¾ªç¯ä½“äº†
         Thread.sleep(5000);
         demo.flag = true;
 
@@ -32,7 +32,7 @@ public class VolatileDemo extends Thread {
 //  		  rl.lock();
 //  		  AtomicReference<Integer> ar = new AtomicReference<Integer>();
 //  		  ar.compareAndSet(1, 2);
-//  		  
+//
 //  		  System.out.println(11);
 //      }
 

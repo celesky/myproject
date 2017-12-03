@@ -1,7 +1,7 @@
 package com.proxy.staticproxy;
 
 /**
- * 书籍操作接口
+ * 涔︾睄鎿嶄綔鎺ュ彛
  * @author Celes
  *
  */

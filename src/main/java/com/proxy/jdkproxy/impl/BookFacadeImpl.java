@@ -2,11 +2,11 @@ package com.proxy.jdkproxy.impl;
 
 import com.proxy.jdkproxy.BookFacade;
 
-public class BookFacadeImpl implements BookFacade {  
-	  
-    @Override  
-    public void addBook() {  
-        System.out.println("Ôö¼ÓÍ¼Êé·½·¨¡£¡£¡£");  
-    }  
-  
-}  
+public class BookFacadeImpl implements BookFacade {
+
+    @Override
+    public void addBook() {
+        System.out.println("å¢žåŠ å›¾ä¹¦æ–¹æ³•ã€‚ã€‚ã€‚");
+    }
+
+}

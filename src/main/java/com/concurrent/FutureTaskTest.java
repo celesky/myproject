@@ -24,7 +24,7 @@ public class FutureTaskTest {
                     return createConnection();
                 }
             }
-            ;
+                    ;
             FutureTask<Connection> newTask = new FutureTask<Connection>(callable);
             connectionTask = connectionPool.putIfAbsent(key, newTask);
             if (connectionTask == null) {
@@ -35,9 +35,9 @@ public class FutureTaskTest {
         }
     }
 
-    //创建Connection
+    //鍒涘缓Connection
     private Connection createConnection() {
-        System.out.println("开始创建新连接 .... "+cnn++);
+        System.out.println("寮�濮嬪垱寤烘柊杩炴帴 .... "+cnn++);
         Connection conn = new Connection();
         conn.connId=String.valueOf(cnn);
         return conn;

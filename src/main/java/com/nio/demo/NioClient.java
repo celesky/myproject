@@ -12,91 +12,91 @@ import java.nio.charset.CharsetEncoder;
 import java.util.Iterator;
 
 public class NioClient {
-	 static int SIZE = 10;   
-	    static InetSocketAddress ip = new InetSocketAddress("localhost", 8888);   
-	    static CharsetEncoder encoder = Charset.forName("GB2312").newEncoder();   
-	 
-	    static class Message implements Runnable {   
-	        protected String name;   
-	        String msg = "";   
-	 
-	        public Message(String index) {   
-	            this.name = index;   
-	        }   
-	 
-	        public void run() {   
-	            try {   
-	                long start = System.currentTimeMillis();   
-	                //´ò¿ªSocketÍ¨µÀ   
-	                SocketChannel client = SocketChannel.open();   
-	                //ÉèÖÃÎª·Ç×èÈûÄ£Ê½   
-	                client.configureBlocking(false);   
-	                //´ò¿ªÑ¡ÔñÆ÷   
-	                Selector selector = Selector.open();   
-	                //×¢²áÁ¬½Ó·þÎñ¶Ësocket¶¯×÷   
-	                client.register(selector, SelectionKey.OP_CONNECT);   
-	                //Á¬½Ó   
-	                client.connect(ip);   
-	                //·ÖÅäÄÚ´æ   
-	                ByteBuffer buffer = ByteBuffer.allocate(8 * 1024);   
-	                int total = 0;   
-	 
-	                _FOR: for (;;) {   
-	                    selector.select();   
-	                    Iterator iter = selector.selectedKeys().iterator();   
-	 
-	                    while (iter.hasNext()) {   
-	                        SelectionKey key = (SelectionKey) iter.next();   
-	                        iter.remove();   
-	                        if (key.isConnectable()) {   
-	                            SocketChannel channel = (SocketChannel) key   
-	                                    .channel();   
-	                            if (channel.isConnectionPending())   
-	                                channel.finishConnect();   
-	                            channel   
-	                                    .write(encoder   
-	                                            .encode(CharBuffer.wrap(name)));   
-	 
-	                            channel.register(selector, SelectionKey.OP_READ);   
-	                        } else if (key.isReadable()) {   
-	                            SocketChannel channel = (SocketChannel) key   
-	                                    .channel();   
-	                            int count = channel.read(buffer);   
-	                            if (count > 0) {   
-	                                total += count;   
-	                                buffer.flip();   
-	 
-	                                while (buffer.remaining() > 0) {   
-	                                    byte b = buffer.get();   
-	                                    msg += (char) b;   
-	                                       
-	                                }   
-	 
-	                                buffer.clear();   
-	                            } else {   
-	                                client.close();   
-	                                break _FOR;   
-	                            }   
-	                        }   
-	                    }   
-	                }   
-	                double last = (System.currentTimeMillis() - start) * 1.0 / 1000;   
-	                System.out.println(msg + "used time :" + last + "s.");   
-	                msg = "";   
-	            } catch (IOException e) {   
-	                e.printStackTrace();   
-	            }   
-	        }   
-	    }   
-	 
-	    public static void main(String[] args) throws IOException {   
-	       
-	        String names[] = new String[SIZE];   
-	 
-	        for (int index = 0; index < SIZE; index++) {   
-	            names[index] = "jeff[" + index + "]";   
-	            new Thread(new Message(names[index])).start();   
-	        }   
-	       
-	    }   
+	static int SIZE = 10;
+	static InetSocketAddress ip = new InetSocketAddress("localhost", 8888);
+	static CharsetEncoder encoder = Charset.forName("GB2312").newEncoder();
+
+	static class Message implements Runnable {
+		protected String name;
+		String msg = "";
+
+		public Message(String index) {
+			this.name = index;
+		}
+
+		public void run() {
+			try {
+				long start = System.currentTimeMillis();
+				//æ‰“å¼€Socketé€šé“
+				SocketChannel client = SocketChannel.open();
+				//è®¾ç½®ä¸ºéžé˜»å¡žæ¨¡å¼
+				client.configureBlocking(false);
+				//æ‰“å¼€é€‰æ‹©å™¨
+				Selector selector = Selector.open();
+				//æ³¨å†Œè¿žæŽ¥æœåŠ¡ç«¯socketåŠ¨ä½œ
+				client.register(selector, SelectionKey.OP_CONNECT);
+				//è¿žæŽ¥
+				client.connect(ip);
+				//åˆ†é…å†…å­˜
+				ByteBuffer buffer = ByteBuffer.allocate(8 * 1024);
+				int total = 0;
+
+				_FOR: for (;;) {
+					selector.select();
+					Iterator iter = selector.selectedKeys().iterator();
+
+					while (iter.hasNext()) {
+						SelectionKey key = (SelectionKey) iter.next();
+						iter.remove();
+						if (key.isConnectable()) {
+							SocketChannel channel = (SocketChannel) key
+									.channel();
+							if (channel.isConnectionPending())
+								channel.finishConnect();
+							channel
+									.write(encoder
+											.encode(CharBuffer.wrap(name)));
+
+							channel.register(selector, SelectionKey.OP_READ);
+						} else if (key.isReadable()) {
+							SocketChannel channel = (SocketChannel) key
+									.channel();
+							int count = channel.read(buffer);
+							if (count > 0) {
+								total += count;
+								buffer.flip();
+
+								while (buffer.remaining() > 0) {
+									byte b = buffer.get();
+									msg += (char) b;
+
+								}
+
+								buffer.clear();
+							} else {
+								client.close();
+								break _FOR;
+							}
+						}
+					}
+				}
+				double last = (System.currentTimeMillis() - start) * 1.0 / 1000;
+				System.out.println(msg + "used time :" + last + "s.");
+				msg = "";
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public static void main(String[] args) throws IOException {
+
+		String names[] = new String[SIZE];
+
+		for (int index = 0; index < SIZE; index++) {
+			names[index] = "jeff[" + index + "]";
+			new Thread(new Message(names[index])).start();
+		}
+
+	}
 }
