@@ -11,7 +11,7 @@ public class ModThread implements Runnable {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-            System.out.println("给他催眠中，设置asleep=false");
+            System.out.println("缁欎粬鍌湢涓紝璁剧疆asleep=false");
             LockDemo.asleep = false;
         }
     }
