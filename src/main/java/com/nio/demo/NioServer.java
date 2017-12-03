@@ -14,95 +14,95 @@ import java.nio.charset.CharsetEncoder;
 import java.util.Iterator;
 
 public class NioServer {
-	static int BLOCK = 1024;   
-    static String name = "";   
-    protected Selector selector;   
-    protected ByteBuffer clientBuffer = ByteBuffer.allocate(BLOCK);   
-    protected CharsetDecoder decoder;   
-    static CharsetEncoder encoder = Charset.forName("GB2312").newEncoder();   
- 
-    public NioServer(int port) throws IOException {   
-        selector = this.getSelector(port);   
-        Charset charset = Charset.forName("GB2312");   
-        decoder = charset.newDecoder();   
-    }   
- 
-    // »ñÈ¡Selector   
-    protected Selector getSelector(int port) throws IOException {   
-        ServerSocketChannel server = ServerSocketChannel.open();   
-        Selector sel = Selector.open();   
-        server.socket().bind(new InetSocketAddress(port));   
-        server.configureBlocking(false);   
-        server.register(sel, SelectionKey.OP_ACCEPT);   
-        return sel;   
-    }   
- 
-    // ¼àÌý¶Ë¿Ú   
-    public void listen() {   
-        try {   
-            for (;;) {   
-                selector.select();   
-                Iterator iter = selector.selectedKeys().iterator();   
-                while (iter.hasNext()) {   
-                    SelectionKey key = (SelectionKey) iter.next();   
-                    iter.remove();   
-                    process(key);   
-                }   
-            }   
-        } catch (IOException e) {   
-            e.printStackTrace();   
-        }   
-    }   
- 
-    // ´¦ÀíÊÂ¼þ   
-    protected void process(SelectionKey key) throws IOException {   
-        if (key.isAcceptable()) { // ½ÓÊÕÇëÇó   
-            ServerSocketChannel server = (ServerSocketChannel) key.channel();   
-            SocketChannel channel = server.accept();   
-            //ÉèÖÃ·Ç×èÈûÄ£Ê½   
-            channel.configureBlocking(false);   
-            channel.register(selector, SelectionKey.OP_READ);   
-        } else if (key.isReadable()) { // ¶ÁÐÅÏ¢   
-            SocketChannel channel = (SocketChannel) key.channel();   
-            int count = channel.read(clientBuffer);   
-            if (count > 0) {   
-                clientBuffer.flip();   
-                CharBuffer charBuffer = decoder.decode(clientBuffer);   
-                name = charBuffer.toString();   
-                // System.out.println(name);   
-                SelectionKey sKey = channel.register(selector,   
-                        SelectionKey.OP_WRITE);   
-                sKey.attach(name);   
-            } else {   
-                channel.close();   
-            }   
- 
-            clientBuffer.clear();   
-        } else if (key.isWritable()) { // Ð´ÊÂ¼þ   
-            SocketChannel channel = (SocketChannel) key.channel();   
-            String name = (String) key.attachment();   
-               
-            ByteBuffer block = encoder.encode(CharBuffer   
-                    .wrap("Hello !" + name));   
-               
- 
-            channel.write(block);   
- 
-            //channel.close();   
- 
-        }   
-    }   
- 
-    public static void main(String[] args) {   
-        int port = 8888;   
-        try {   
-            NioServer server = new NioServer(port);   
-            System.out.println("listening on " + port);   
-               
-            server.listen();   
-               
-        } catch (IOException e) {   
-            e.printStackTrace();   
-        }   
-    }   
+    static int BLOCK = 1024;
+    static String name = "";
+    protected Selector selector;
+    protected ByteBuffer clientBuffer = ByteBuffer.allocate(BLOCK);
+    protected CharsetDecoder decoder;
+    static CharsetEncoder encoder = Charset.forName("GB2312").newEncoder();
+
+    public NioServer(int port) throws IOException {
+        selector = this.getSelector(port);
+        Charset charset = Charset.forName("GB2312");
+        decoder = charset.newDecoder();
+    }
+
+    // èŽ·å–Selector
+    protected Selector getSelector(int port) throws IOException {
+        ServerSocketChannel server = ServerSocketChannel.open();
+        Selector sel = Selector.open();
+        server.socket().bind(new InetSocketAddress(port));
+        server.configureBlocking(false);
+        server.register(sel, SelectionKey.OP_ACCEPT);
+        return sel;
+    }
+
+    // ç›‘å¬ç«¯å£
+    public void listen() {
+        try {
+            for (;;) {
+                selector.select();
+                Iterator iter = selector.selectedKeys().iterator();
+                while (iter.hasNext()) {
+                    SelectionKey key = (SelectionKey) iter.next();
+                    iter.remove();
+                    process(key);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // å¤„ç†äº‹ä»¶
+    protected void process(SelectionKey key) throws IOException {
+        if (key.isAcceptable()) { // æŽ¥æ”¶è¯·æ±‚
+            ServerSocketChannel server = (ServerSocketChannel) key.channel();
+            SocketChannel channel = server.accept();
+            //è®¾ç½®éžé˜»å¡žæ¨¡å¼
+            channel.configureBlocking(false);
+            channel.register(selector, SelectionKey.OP_READ);
+        } else if (key.isReadable()) { // è¯»ä¿¡æ¯
+            SocketChannel channel = (SocketChannel) key.channel();
+            int count = channel.read(clientBuffer);
+            if (count > 0) {
+                clientBuffer.flip();
+                CharBuffer charBuffer = decoder.decode(clientBuffer);
+                name = charBuffer.toString();
+                // System.out.println(name);
+                SelectionKey sKey = channel.register(selector,
+                        SelectionKey.OP_WRITE);
+                sKey.attach(name);
+            } else {
+                channel.close();
+            }
+
+            clientBuffer.clear();
+        } else if (key.isWritable()) { // å†™äº‹ä»¶
+            SocketChannel channel = (SocketChannel) key.channel();
+            String name = (String) key.attachment();
+
+            ByteBuffer block = encoder.encode(CharBuffer
+                    .wrap("Hello !" + name));
+
+
+            channel.write(block);
+
+            //channel.close();
+
+        }
+    }
+
+    public static void main(String[] args) {
+        int port = 8888;
+        try {
+            NioServer server = new NioServer(port);
+            System.out.println("listening on " + port);
+
+            server.listen();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

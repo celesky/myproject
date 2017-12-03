@@ -1,14 +1,14 @@
 package com.proxy.cglib.byproxy;
 
 /**
- * ±»´úÀíÀà 
- * ÏûÏ¢´¦ÀíÀà
+ * è¢«ä»£ç†ç±»
+ * æ¶ˆæ¯å¤„ç†ç±»
  * @author Celes
  *
  */
 public class MsgFacadeImpl {
-	
-	public void sendMsg() {  
-	     System.out.println("·¢ËÍÏûÏ¢µÄÆÕÍ¨·½·¨...");  
-	 }  
+
+	public void sendMsg() {
+		System.out.println("å‘é€æ¶ˆæ¯çš„æ™®é€šæ–¹æ³•...");
+	}
 }

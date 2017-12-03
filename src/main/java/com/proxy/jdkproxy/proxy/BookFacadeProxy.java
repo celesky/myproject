@@ -5,35 +5,35 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
- * jdkµÄ¶¯Ì¬´úÀí Í¨¹ı·´ÉäÊµÏÖ
+ * jdkçš„åŠ¨æ€ä»£ç† é€šè¿‡åå°„å®ç°
  * @author Celes
  *
  */
 public class BookFacadeProxy implements InvocationHandler {
-	
-	private Object target;  
-    /** 
-     * °ó¶¨Î¯ÍĞ¶ÔÏó²¢·µ»ØÒ»¸ö´úÀíÀà 
-     * @param target 
-     * @return 
-     */  
-    public Object bind(Object target) {  
-        this.target = target;  
-        //È¡µÃ´úÀí¶ÔÏó  
-        return Proxy.newProxyInstance(target.getClass().getClassLoader(),  
-                target.getClass().getInterfaces(), this);   //Òª°ó¶¨½Ó¿Ú(ÕâÊÇÒ»¸öÈ±Ïİ£¬cglibÃÖ²¹ÁËÕâÒ»È±Ïİ)  
-    }  
-  
-    /** 
-     * µ÷ÓÃ·½·¨ 
-     */  
-    public Object invoke(Object proxy, Method method, Object[] args)  
-            throws Throwable {  
-        Object result=null;  
-        System.out.println("ÊÂÎï¿ªÊ¼");  
-        //Ö´ĞĞ·½·¨  
-        result=method.invoke(target, args);  
-        System.out.println("ÊÂÎï½áÊø");  
-        return result;  
-    }  
+
+    private Object target;
+    /**
+     * ç»‘å®šå§”æ‰˜å¯¹è±¡å¹¶è¿”å›ä¸€ä¸ªä»£ç†ç±»
+     * @param target
+     * @return
+     */
+    public Object bind(Object target) {
+        this.target = target;
+        //å–å¾—ä»£ç†å¯¹è±¡
+        return Proxy.newProxyInstance(target.getClass().getClassLoader(),
+                target.getClass().getInterfaces(), this);   //è¦ç»‘å®šæ¥å£(è¿™æ˜¯ä¸€ä¸ªç¼ºé™·ï¼Œcglibå¼¥è¡¥äº†è¿™ä¸€ç¼ºé™·)
+    }
+
+    /**
+     * è°ƒç”¨æ–¹æ³•
+     */
+    public Object invoke(Object proxy, Method method, Object[] args)
+            throws Throwable {
+        Object result=null;
+        System.out.println("äº‹ç‰©å¼€å§‹");
+        //æ‰§è¡Œæ–¹æ³•
+        result=method.invoke(target, args);
+        System.out.println("äº‹ç‰©ç»“æŸ");
+        return result;
+    }
 }
