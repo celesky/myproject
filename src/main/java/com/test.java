@@ -1,8 +1,14 @@
 package com;
 
+import com.sizeofobject.SizeOfObject;
+
 import javax.lang.model.SourceVersion;
+import java.lang.instrument.Instrumentation;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import com.lifesense.lssleepanalyze_ndk.LSSleepAnalyze;
+
 
 public class test {
 	private static final int _1MB = 1024 * 1024;
@@ -30,6 +36,9 @@ public class test {
 	 }
 
 	public static void main(String[] args)throws Exception {
-		testAllocation();
+		while(true){
+			System.out.println(Thread.currentThread().getId());
+			Thread.sleep(200);
+		}
 	}
 }
