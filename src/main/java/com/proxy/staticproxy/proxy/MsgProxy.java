@@ -3,20 +3,20 @@ package com.proxy.staticproxy.proxy;
 import com.proxy.staticproxy.MsgFacade;
 
 public class MsgProxy implements MsgFacade{
-	private MsgFacade msgFacade;  
-	
+	private MsgFacade msgFacade;
+
 	public MsgProxy(MsgFacade msgFacade){
 		this.msgFacade = msgFacade;
 	}
-	
-	
+
+
 	@Override
 	public void sendMsg() {
-		 System.out.println("事务处理之前");  
-	        // 调用委托类的方法;  
-		 msgFacade.sendMsg();
-		 
-	     System.out.println("事务处理之后");  
+		System.out.println("浜嬪姟澶勭悊涔嬪墠");
+		// 璋冪敤濮旀墭绫荤殑鏂规硶;
+		msgFacade.sendMsg();
+
+		System.out.println("浜嬪姟澶勭悊涔嬪悗");
 	}
 
 }

@@ -7,7 +7,7 @@ import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.handler.codec.frame.FrameDecoder;
 
 /**
- * 消息前四个字节为报文长度,
+ * 娑堟伅鍓嶅洓涓瓧鑺備负鎶ユ枃闀垮害,
  * Created by pan on 16/8/31.
  */
 public class MessageDecoder extends FrameDecoder {
@@ -18,21 +18,21 @@ public class MessageDecoder extends FrameDecoder {
             return null;
         }
 
-        //获取消息长度
+        //鑾峰彇娑堟伅闀垮害
         ChannelBuffer cb =  buffer.readBytes(4);
-        //计算消息长度
+        //璁＄畻娑堟伅闀垮害
         StringBuffer lenB = new StringBuffer();
         while (cb.readable()) {
             lenB.append((char)cb.readByte());
         }
-        //消息长度
+        //娑堟伅闀垮害
         int msglen = Integer.parseInt(lenB.toString());
 
         if (buffer.readableBytes() < msglen) {
             return null;
         }
 
-        //获取消息内容
+        //鑾峰彇娑堟伅鍐呭
         ChannelBuffer msgcb =  buffer.readBytes(msglen);
         StringBuffer  msg = new StringBuffer();
 

@@ -10,7 +10,7 @@ import org.apache.http.conn.scheme.Scheme;
 import org.apache.http.conn.scheme.SchemeRegistry;
 import org.apache.http.conn.ssl.SSLSocketFactory;
 import org.apache.http.impl.client.DefaultHttpClient;
-//用于进行Https请求的HttpClient
+//鐢ㄤ簬杩涜Https璇锋眰鐨凥ttpClient
 public class SSLClient extends DefaultHttpClient{
     public SSLClient() throws Exception{
         super();

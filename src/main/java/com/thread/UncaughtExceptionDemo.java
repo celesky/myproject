@@ -3,40 +3,41 @@ package com.thread;
 import java.lang.Thread.UncaughtExceptionHandler;
 
 public class UncaughtExceptionDemo {
-	 public static void main(String[] args) {
-		    ErrHandler handle = null;
-		    ThreadA a = null;
-		 
-		    a = new UncaughtExceptionDemo.ThreadA();
-		    handle = new ErrHandler();
-		    a.setUncaughtExceptionHandler(handle);// ¼ÓÈë¶¨ÒåµÄErrHandler
-		    a.start();
-		 
+	public static void main(String[] args) {
+		ErrHandler handle = null;
+		ThreadA a = null;
+
+		a = new UncaughtExceptionDemo.ThreadA();
+		handle = new ErrHandler();
+		a.setUncaughtExceptionHandler(handle);// åŠ å…¥å®šä¹‰çš„ErrHandler
+		a.start();
+
 	}
 	static class ErrHandler  implements UncaughtExceptionHandler{
 
-		  /**
-		   * ÕâÀï¿ÉÒÔ×öÈÎºÎÕë¶ÔÒì³£µÄ´¦Àí,±ÈÈç¼ÇÂ¼ÈÕÖ¾µÈµÈ
-		   */
-		  public void uncaughtException(Thread a, Throwable e) {
-		    System.out.println("This is:" + a.getName() + ",Message:"+ e.getMessage());
-		    e.printStackTrace();
-		  }
-		
+		/**
+		 * è¿™é‡Œå¯ä»¥åšä»»ä½•é’ˆå¯¹å¼‚å¸¸çš„å¤„ç†,æ¯”å¦‚è®°å½•æ—¥å¿—ç­‰ç­‰
+		 */
+		@Override
+		public void uncaughtException(Thread a, Throwable e) {
+			System.out.println("This is:" + a.getName() + ",Message:"+ e.getMessage());
+			e.printStackTrace();
+		}
+
 	}
 	/**
-	 * ÓµÓĞUncaughtExceptionHandlerµÄÏß³Ì
+	 * æ‹¥æœ‰UncaughtExceptionHandlerçš„çº¿ç¨‹
 	 */
 	static class ThreadA extends Thread {
-	 
-		  public ThreadA() {
-		  }
-	 
+
+		public ThreadA() {
+		}
+
 
 	}
 
 	public void run() {
-		double i = 12 / 0;// Å×³öÒì³£µÄµØ·½
+		double i = 12 / 0;// æŠ›å‡ºå¼‚å¸¸çš„åœ°æ–¹
 	}
 
 }
