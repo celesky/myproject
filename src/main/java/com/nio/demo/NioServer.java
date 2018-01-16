@@ -13,6 +13,10 @@ import java.nio.charset.CharsetDecoder;
 import java.nio.charset.CharsetEncoder;
 import java.util.Iterator;
 
+/**
+ * 给selector注册一个管道socketChannel,和这个管道上的事件
+ *
+ */
 public class NioServer {
     static int BLOCK = 1024;
     static String name = "";
@@ -29,12 +33,12 @@ public class NioServer {
 
     // 获取Selector
     protected Selector getSelector(int port) throws IOException {
-        ServerSocketChannel server = ServerSocketChannel.open();
-        Selector sel = Selector.open();
-        server.socket().bind(new InetSocketAddress(port));
-        server.configureBlocking(false);
-        server.register(sel, SelectionKey.OP_ACCEPT);
-        return sel;
+        Selector selctor = Selector.open();//打开一个selector
+        ServerSocketChannel socketChannel = ServerSocketChannel.open();//打开管道
+        socketChannel.socket().bind(new InetSocketAddress(port));
+        socketChannel.configureBlocking(false);
+        socketChannel.register(selctor, SelectionKey.OP_ACCEPT);//注册到selector
+        return selctor;
     }
 
     // 监听端口

@@ -108,12 +108,12 @@ public class MyWebSocketServerHandler extends SimpleChannelInboundHandler<Object
 
             // 握手成功之后,业务逻辑 注册
             if (channelFuture.isSuccess()) {
-                //if (client.getId() == 0) {
+                //if (ProductClient.getId() == 0) {
                 System.out.println(ctx.channel() + " 游客");
                 return;
                 //}
 
-                //loginClientMap.put(ctx.channel().id().asShortText(), client);
+                //loginClientMap.put(ctx.channel().id().asShortText(), ProductClient);
             }
         }
     }

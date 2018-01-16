@@ -9,7 +9,7 @@ ol {line-height:18px;}
 <body>
 <strong>java.io.tmpdir:</strong>
 <ul>
-<li><%=System.getProperty("java.io.tmpdir")%></li>
+<li><%=System.getProperty("javaapi.io.tmpdir")%></li>
 </ul>
 <br/>
 <strong>Memory:</strong>

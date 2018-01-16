@@ -15,7 +15,7 @@ public class SubscribeClient {
 
     private final static boolean CLEAN_START = true;
     private final static short KEEP_ALIVE = 30;// 低耗网络，但是又需要及时获取数据，心跳30s
-    private final static String CLIENT_ID = "client";
+    private final static String CLIENT_ID = "ProductClient";
     public static Topic[] topics = {
             new Topic("mqtt/aaa", QoS.EXACTLY_ONCE), //  2 只有一次
             new Topic("mqtt/bbb", QoS.AT_LEAST_ONCE),  // 1 至少一次

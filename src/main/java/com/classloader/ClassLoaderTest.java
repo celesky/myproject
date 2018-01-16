@@ -35,7 +35,7 @@ public class ClassLoaderTest {
 //        System.out.println(obj.getClass());
 //        System.out.println(obj instanceof com.classloader.ClassLoaderTest);
 //
-        Object obj = myLoader.loadClass("java.lang.Character").newInstance();
+        Object obj = myLoader.loadClass("javaapi.lang.Character").newInstance();
         System.out.println(obj.getClass());
 
     }

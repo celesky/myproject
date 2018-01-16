@@ -15,7 +15,7 @@ public class UseScatterGather
 
   static public void main( String args[] ) throws Exception {
     if (args.length!=1) {
-      System.err.println( "Usage: java UseScatterGather port" );
+      System.err.println( "Usage: javaapi UseScatterGather port" );
       System.exit( 1 );
     }
 

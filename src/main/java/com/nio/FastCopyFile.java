@@ -10,7 +10,7 @@ public class FastCopyFile
 {
   static public void main( String args[] ) throws Exception {
     if (args.length<2) {
-      System.err.println( "Usage: java FastCopyFile infile outfile" );
+      System.err.println( "Usage: javaapi FastCopyFile infile outfile" );
       System.exit( 1 );
     }
 

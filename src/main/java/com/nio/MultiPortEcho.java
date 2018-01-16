@@ -96,7 +96,7 @@ public class MultiPortEcho
 
   static public void main( String args[] ) throws Exception {
 //    if (args.length<=0) {
-//      System.err.println( "Usage: java MultiPortEcho port [port port ...]" );
+//      System.err.println( "Usage: javaapi MultiPortEcho port [port port ...]" );
 //      System.exit( 1 );
 //    }
 

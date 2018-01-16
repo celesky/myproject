@@ -15,7 +15,7 @@ public class HelloClientHandler extends SimpleChannelHandler {
 
 
     /**
-     * 当绑定到服务端的时候触发，打印"Hello world, I'm client."
+     * 当绑定到服务端的时候触发，打印"Hello world, I'm ProductClient."
      *
      * @alia OneCoder
      * @author lihzh
@@ -23,7 +23,7 @@ public class HelloClientHandler extends SimpleChannelHandler {
     @Override
     public void channelConnected(ChannelHandlerContext ctx,
                                  ChannelStateEvent e) {
-        //System.out.println("Hello world, I'm client.");
+        //System.out.println("Hello world, I'm ProductClient.");
         //启动模拟客户端线程
         new ClientRobotThread().setCtx(ctx).start();
     }
@@ -44,7 +44,7 @@ public class HelloClientHandler extends SimpleChannelHandler {
     public void messageReceived(
             ChannelHandlerContext ctx, MessageEvent e) throws Exception {
         //ctx.sendUpstream(e);
-        System.out.println("[client][messageReceived-------------]"+e.getMessage());
+        System.out.println("[ProductClient][messageReceived-------------]"+e.getMessage());
         ChatMessage chatMessage = (ChatMessage)e.getMessage();
         System.out.println("chatMessage.getMsg() = " + chatMessage.getMsg());
 //        ChannelBuffer buf = (ChannelBuffer) e.getMessage();

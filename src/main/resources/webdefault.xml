@@ -201,7 +201,7 @@
   <!--                       Explorer when using <jsp:plugin> tags.         -->
   <!--                       [clsid:8AD9C840-044E-11D1-B3E9-00805F499D93]   -->
   <!--                                                                      -->
-  <!--   javaEncoding        Java file encoding to use for generating java  -->
+  <!--   javaEncoding        Java file encoding to use for generating javaapi  -->
   <!--                       source files. [UTF-8]                          -->
   <!--                                                                      -->
   <!--   keepgenerated       Should we keep the generated Java source code  -->

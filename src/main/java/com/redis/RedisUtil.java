@@ -63,7 +63,6 @@ public class RedisUtil {
         jedis.zadd("productPrices:5001",90,"discoutPrice");
         jedis.zadd("productPrices:5001",80,"newPrice");
         jedis.zadd("productPrices:5001",60,"vipPrice");
-
         //Set set = jedis.zrange("productPrices:5001",1,3);
         Set set = jedis.zrangeByScore("productPrices:5001",60,80);
         System.out.println(set);

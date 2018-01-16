@@ -18,7 +18,7 @@ public class ClientRobotThread extends Thread{
         while(true){
             if(ctx!=null){
                 //发送一条应答过去告诉客户端
-                String msg = "0000|0000|hello, every one:!this is the msg from client!";
+                String msg = "0000|0000|hello, every one:!this is the msg from ProductClient!";
                 int len = msg.length();
                 String lenl = "0";
                 if(len<10){
