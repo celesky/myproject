@@ -20,17 +20,19 @@ public class ThreadLocalOOM {
     }
 
     class MyTask implements Runnable{
-        ThreadLocal<byte[]> tl = new ThreadLocal<byte[]>();
-
+        ThreadLocal<byte[]> threadLocal1 = new ThreadLocal<byte[]>();
+        ThreadLocal<byte[]> threadLocal2 = new ThreadLocal<byte[]>();
         @Override
         public void run() {
             try {
                 Thread.sleep(5000);
                 System.out.println("now set 30m");
-                tl.set(new byte[1024*1024*30]);
+                threadLocal1.set(new byte[1024*1024*30]);
+                threadLocal2.set(new byte[1024*1024*30*10]);
                 Thread.sleep(5000);
                 System.out.println("now clear");
-                tl.set(null);
+                threadLocal1.set(null);
+                threadLocal2.get();
                 System.gc();
             } catch (InterruptedException e) {
                 e.printStackTrace();
