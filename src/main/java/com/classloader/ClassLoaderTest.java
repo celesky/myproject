@@ -2,6 +2,7 @@ package com.classloader;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Method;
 
 /**
  * 类加载器与instanceof关键字演示
@@ -9,34 +10,59 @@ import java.io.InputStream;
  * @author zzm
  */
 public class ClassLoaderTest {
+    public void justPrint(){
+        System.out.println("just print hello world");
+    }
+    //自定义的classloader
+    static ClassLoader myLoader = new ClassLoader() {
+        @Override
+        public Class<?> loadClass(String name) throws ClassNotFoundException {
+            try {
+                String fileName = name.substring(name.lastIndexOf(".") + 1) + ".class";
+                InputStream is = getClass().getResourceAsStream(fileName);
+                if (is == null) {
+                    return super.loadClass(name);
+                }
+                byte[] b = new byte[is.available()];
+                is.read(b);
+                return defineClass(name, b, 0, b.length);
+            } catch (IOException e) {
+                throw new ClassNotFoundException(name);
+            }
+        }
+    };
+
+    /**
+     * class对比
+     * @throws Exception
+     */
+    public static void compare() throws Exception {
+        //自定义的classloader载入的class,然后生成一个实例
+        Object obj = myLoader.loadClass("com.classloader.ClassLoaderTest").newInstance();
+
+        //和jvm自带类加载器appClassloader加载的类对比
+        boolean is = obj instanceof  com.classloader.ClassLoaderTest;
+        //结果是false ,因为虽然是同一个class文件,但是他们是不同的类加载器载入的
+        System.out.println("is = " + is);
+    }
+
+    /**
+     * 测试反射
+     * @throws Exception
+     */
+    public static void reflectInvokeTest() throws Exception{
+        Class myclass = myLoader.loadClass("com.classloader.ClassLoaderTest");
+        Object object = myclass.newInstance();
+        Method method = myclass.getDeclaredMethod("justPrint");
+        method.invoke(object);
+    }
 
     public static void main(String[] args) throws Exception {
-
-        ClassLoader myLoader = new ClassLoader() {
-            @Override
-            public Class<?> loadClass(String name) throws ClassNotFoundException {
-                try {
-                    String fileName = name.substring(name.lastIndexOf(".") + 1) + ".class";
-                    InputStream is = getClass().getResourceAsStream(fileName);
-                    if (is == null) {
-                        return super.loadClass(name);
-                    }
-                    byte[] b = new byte[is.available()];
-                    is.read(b);
-                    return defineClass(name, b, 0, b.length);
-                } catch (IOException e) {
-                    throw new ClassNotFoundException(name);
-                }
-            }
-        };
-
-        //Object obj = myLoader.loadClass("com.classloader.ClassLoaderTest").newInstance();
-//
-//        System.out.println(obj.getClass());
-//        System.out.println(obj instanceof com.classloader.ClassLoaderTest);
-//
-        Object obj = myLoader.loadClass("javaapi.lang.Character").newInstance();
-        System.out.println(obj.getClass());
-
+        //compare();
+        reflectInvokeTest();
+        System.out.println("myLoader.getParent().getClass().getClassLoader() = " + myLoader.getParent().getClass().getClassLoader());
     }
+
+
+
 }

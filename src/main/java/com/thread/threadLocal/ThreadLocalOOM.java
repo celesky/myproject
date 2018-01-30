@@ -1,5 +1,6 @@
 package com.thread.threadLocal;
 
+import java.net.URI;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -11,6 +12,8 @@ import java.util.concurrent.Executors;
 public class ThreadLocalOOM {
     public static void main(String[] args) {
         new ThreadLocalOOM().exe();
+        URI.create("https://hezuo.lifesense.com/raw/common/third_party_login_account.html?name=Smart%20Home");
+
     }
 
     public void exe(){
@@ -34,6 +37,7 @@ public class ThreadLocalOOM {
                 threadLocal1.set(null);
                 threadLocal2.get();
                 System.gc();
+
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

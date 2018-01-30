@@ -3,6 +3,8 @@ package com.thread;
 import java.lang.Thread.UncaughtExceptionHandler;
 
 public class UncaughtExceptionDemo {
+
+
 	public static void main(String[] args) {
 		ErrHandler handle = null;
 		ThreadA a = null;
@@ -11,6 +13,7 @@ public class UncaughtExceptionDemo {
 		handle = new ErrHandler();
 		a.setUncaughtExceptionHandler(handle);// 加入定义的ErrHandler
 		a.start();
+
 
 	}
 	static class ErrHandler  implements UncaughtExceptionHandler{
@@ -33,11 +36,15 @@ public class UncaughtExceptionDemo {
 		public ThreadA() {
 		}
 
+		@Override
+		public void run() {
+			System.out.println("线程run了 " );
+			double i = 12 / 0;// 抛出异常的地方
+			System.out.println("i = " + i);
+		}
 
 	}
 
-	public void run() {
-		double i = 12 / 0;// 抛出异常的地方
-	}
+
 
 }
