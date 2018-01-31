@@ -3,6 +3,7 @@ package com.classloader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Method;
+import java.sql.DriverManager;
 
 /**
  * 类加载器与instanceof关键字演示
@@ -61,6 +62,11 @@ public class ClassLoaderTest {
         //compare();
         reflectInvokeTest();
         System.out.println("myLoader.getParent().getClass().getClassLoader() = " + myLoader.getParent().getClass().getClassLoader());
+
+
+        Class.forName("com.mysql.jdbc.Driver");
+        DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "user", "psw");
+
     }
 
 
