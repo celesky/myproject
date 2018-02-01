@@ -32,9 +32,10 @@ public class CountDownLatchDemo {
         System.out.println("-------Thread " + id + " is concurrent invoking!!!!!!");
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         for(int i=0;i<10;i++){
             new Thread(new TaskDemo(i)).start();
+            Thread.sleep(1000);
             latch.countDown();
         }
     }
