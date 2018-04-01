@@ -3,6 +3,7 @@ package com.java8.stream;
 import com.google.common.collect.Lists;
 
 import java.util.List;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -79,6 +80,7 @@ public class StreamDemo {
         String[] str1 = new String[]{"ab","cd"};
         String[] str2 = new String[]{"ef","hi","jk"};
         StreamDemo.gennerate(str1,str2);
+
     }
 
 }
