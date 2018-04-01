@@ -1,5 +1,10 @@
 package com;
 
+import org.springframework.context.MessageSource;
+import org.springframework.context.support.ResourceBundleMessageSource;
+
+import java.util.Arrays;
+
 public class test {
 	private static final int _1MB = 1024 * 1024;
 
@@ -26,9 +31,26 @@ public class test {
 	 }
 
 	public static void main(String[] args)throws Exception {
-		while(true){
-			System.out.println(Thread.currentThread().getId());
-			Thread.sleep(200);
+//		while(true){
+//			System.out.println(Thread.currentThread().getId());
+//			Thread.sleep(200);
+//		}
+//		System.out.println(SunMyTet.fuck());
+//
+//		MessageSource messageSource = new ResourceBundleMessageSource();
+//		System.out.println(SunMyTet.fuck());
+
+		Integer[] first = new Integer[]{1,2,3,4};
+		Integer[] second = new Integer[]{5,6,7,8};
+		Integer[] result = concat(first,second);
+		for(int i=0;i<result.length;i++){
+			System.out.println(result[i]);
 		}
+	}
+
+	public static <T> T[] concat(T[] first, T[] second) {
+		T[] result = Arrays.copyOf(first, first.length + second.length);
+		System.arraycopy(second, 0, result, first.length, second.length);
+		return result;
 	}
 }

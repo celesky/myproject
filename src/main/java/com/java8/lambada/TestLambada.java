@@ -52,12 +52,14 @@ public class TestLambada {
         Stream.of(caloris).map(x->Integer.parseInt(x) ).filter(x->x>0).reduce((result, element)->result=result+element);
         //Stream.of(caloris).collect(Collectors.toList()).stream().mapToInt(e->e.)
         //System.out.println("aa = " + aa);
+
+        Stream.of(caloris).map(Integer::parseInt);
     }
 
 
 
     public static void main(String[] args) {
-        TestLambada.runThreadWithLambada();
+        //TestLambada.runThreadWithLambada();
 
         TestLambada.addPrint((String str,String name)->{
             System.out.println(str+":"+name);

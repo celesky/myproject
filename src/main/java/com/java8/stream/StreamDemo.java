@@ -22,7 +22,9 @@ public class StreamDemo {
 
 
     }
-
+    public static boolean check(char[] e){
+        return e != null && e.length > 0;
+    }
     public static void testInit() {
         //可以理解为一个包含12345的集合
 //        Stream<Integer> stream = Stream.of(1,2,3,4,5);
@@ -49,7 +51,8 @@ public class StreamDemo {
         int[] idx = {0};
 
         Stream.of(contents)
-                .filter(e -> e != null && e.length > 0)
+                //.filter(e -> e != null && e.length > 0)
+                .filter(StreamDemo::check) //和上面的写法等效
                 .sorted((x, y) -> {
                     int t = Character.compare(x[idx[0]], y[idx[0]]);
                     idx[0] = idx[0]++;
