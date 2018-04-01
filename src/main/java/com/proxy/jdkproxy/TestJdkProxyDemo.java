@@ -15,7 +15,10 @@ import com.proxy.jdkproxy.proxy.BookFacadeProxy;
  *
  */
 public class TestJdkProxyDemo {
-    public static void main(String[] args) {
+
+
+
+    public static void main(String[] args) throws Exception  {
         BookFacadeProxy proxy = new BookFacadeProxy();
         BookFacade bookProxyImpl = (BookFacade) proxy.bind(new BookFacadeImpl());
         bookProxyImpl.addBook();
@@ -23,6 +26,8 @@ public class TestJdkProxyDemo {
         //还可以代理其他的对象
 //        MsgFacade msgProxyImpl = (MsgFacade) proxy.bind(new MsgFacadeImpl());
 //        msgProxyImpl.sendMsg();
+
+
 
     }
 }

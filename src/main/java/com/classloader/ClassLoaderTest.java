@@ -39,10 +39,17 @@ public class ClassLoaderTest {
      */
     public static void compare() throws Exception {
         //自定义的classloader载入的class,然后生成一个实例
-        Object obj = myLoader.loadClass("com.classloader.ClassLoaderTest").newInstance();
+        Object obj = myLoader.loadClass("com.classloader.TestGit").newInstance();
+        System.out.println("obj.getClass().getClassLoader() = " + obj.getClass().getClassLoader());
 
+        com.classloader.TestGit myloadObj = (TestGit)obj;
+        System.out.println("myloadObj.getClass().getClassLoader() = " + myloadObj.getClass().getClassLoader());
+
+        com.classloader.TestGit testObj = new com.classloader.TestGit();
+        System.out.println("obj的loader是: " + obj.getClass().getClassLoader());
+        System.out.println("testObj的loader是: " + testObj.getClass().getClassLoader());
         //和jvm自带类加载器appClassloader加载的类对比
-        boolean is = obj instanceof  com.classloader.ClassLoaderTest;
+        boolean is = obj instanceof  com.classloader.TestGit;
         //结果是false ,因为虽然是同一个class文件,但是他们是不同的类加载器载入的
         System.out.println("is = " + is);
     }
@@ -59,13 +66,20 @@ public class ClassLoaderTest {
     }
 
     public static void main(String[] args) throws Exception {
-        //compare();
-        reflectInvokeTest();
-        System.out.println("myLoader.getParent().getClass().getClassLoader() = " + myLoader.getParent().getClass().getClassLoader());
+        compare();
+//        reflectInvokeTest();
+//        System.out.println("myLoader.getParent().getClass().getClassLoader() = " + myLoader.getParent().getClass().getClassLoader());
+//
+//
+//        Class.forName("com.mysql.jdbc.Driver");
+//        DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "user", "psw");
 
 
-        Class.forName("com.mysql.jdbc.Driver");
-        DriverManager.getConnection("jdbc:mysql://localhost:3306/db", "user", "psw");
+//        Object bookImpl = myLoader.loadClass("com.proxy.jdkproxy.impl.BookFacadeImpl").newInstance();
+//        Object obj = myLoader.loadClass("com.classloader.TestGit").newInstance();
+//
+//        System.out.println("obj的loader是: " + obj.getClass().getClassLoader());
+//        System.out.println("bookImpl的loader是: " + bookImpl.getClass().getClassLoader());
 
     }
 

@@ -14,12 +14,12 @@ public class RedisUtil {
     static Jedis jedis;
 
     static {
-        jedis = new Jedis("192.168.30.182", 6379);
+        jedis = new Jedis("139.196.151.78", 6377);
     }
 
     public static void testString() {
-        jedis.set("name", "xinxin");//��key-->name�з�����value-->xinxin
-        System.out.println(jedis.get("name"));//ִ�н����xinxin
+        jedis.set("justname", "xinxin");
+        System.out.println(jedis.get("justname"));
     }
     public static void testSetHash(){
         jedis.hset("product:5001","productId","2006101010101");
@@ -70,17 +70,17 @@ public class RedisUtil {
 
     public static void main(String[] args) {
 
-        //RedisUtil.testString();
-        //RedisUtil.testSetHash();
-        //RedisUtil.testReadHash();
-        //testList();
-        //testZHash();
-        try {
-            System.out.println(123456);
-            Thread.sleep(600000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        RedisUtil.testString();
+//        //RedisUtil.testSetHash();
+//        //RedisUtil.testReadHash();
+//        //testList();
+//        //testZHash();
+//        try {
+//            System.out.println(123456);
+//            Thread.sleep(600000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
     }
 
