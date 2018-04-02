@@ -17,6 +17,6 @@
     <!-- 生成远程服务代理，可以像使用本地bean一样使用userService -->
     <dubbo:protocol name="dubbo" host="127.0.0.1" port="20882" accepts="100" threads="100"/>
 
-    <dubbo:reference id="helloService" interface="com.dubbo.api.HelloServiceProvider" scope="remote" retries="0" check="false" timeout="10000" version="1.0" />
+    <dubbo:reference id="helloService" interface="com.rpc.dubbo.api.HelloServiceProvider" scope="remote" retries="0" check="false" timeout="10000" version="1.0" />
 
 </beans>
