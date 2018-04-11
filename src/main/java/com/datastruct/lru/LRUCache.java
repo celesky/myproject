@@ -112,7 +112,7 @@ public class LRUCache {
         lruCache.get(2);
         lruCache.get(1);
         lruCache.put(4,4);
-        System.out.println("lruCache = " + lruCache.toString());
+        System.out.println("lruCache = " + lruCache.hashMap);
     }
 
 }
