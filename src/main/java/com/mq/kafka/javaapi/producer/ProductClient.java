@@ -14,7 +14,7 @@ public class ProductClient {
 
     public static void main(String[] args) {
         Properties props = new Properties();
-        props.put("bootstrap.servers", "127.0.0.1:9091,127.0.0.1:9092");
+        props.put("bootstrap.servers", "127.0.0.1:9092");
         props.put("acks", "1");
         props.put("retries", 0);
         props.put("batch.size", 16384);
@@ -24,8 +24,9 @@ public class ProductClient {
         props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 
         Producer<String, String> producer = new KafkaProducer<>(props);
-        for(int i = 0; i < 100000; i++){
-            ProducerRecord producerRecord = new ProducerRecord<String, String>("my-replicated-topic2", Integer.toString(i), Integer.toString(i));
+        for(int i = 0; i < 100; i++){
+            ProducerRecord producerRecord =
+                    new ProducerRecord<String, String>("word-topic", Integer.toString(i), "Kafka Streams is a library for building streaming applications, specifically applications that transform input Kafka topics into output Kafka");
 
             //异步方式发送
 //            producer.send(producerRecord,new Callback() {

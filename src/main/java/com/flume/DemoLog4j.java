@@ -1,8 +1,9 @@
     package com.flume;
 
 
-    import org.apache.logging.log4j.LogManager;
-    import org.apache.logging.log4j.Logger;
+    import org.apache.log4j.LogManager;
+    import org.apache.log4j.Logger;
+
 
     /**
      * Created by pan on 2017/3/11.

@@ -27,7 +27,7 @@
     </appenders>
 
     <loggers>
-        <root level="INFO">
+        <root level="info">
             <!--<appender-ref ref="Async" />-->
             <appender-ref ref="Console" />
         </root>

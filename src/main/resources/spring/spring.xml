@@ -14,9 +14,11 @@
     <!-- <dubbo:registry address="multicast://224.5.6.7:1234" /> -->  
     <dubbo:registry address="zookeeper://127.0.0.1:2181" />  
   
-    <!-- 生成远程服务代理，可以像使用本地bean一样使用userService -->
-    <dubbo:protocol name="dubbo" host="127.0.0.1" port="20882" accepts="100" threads="100"/>
 
-    <dubbo:reference id="helloService" interface="com.rpc.dubbo.api.HelloServiceProvider" scope="remote" retries="0" check="false" timeout="10000" version="1.0" />
+    <dubbo:reference id="helloService" interface="com.rpc.dubbo.api.HelloServiceProvider" retries="0" check="false" version="1.0.0"/>
 
+    <dubbo:reference id="thriftApiService" interface="com.rpc.dubbo.api.dthrift.ThriftApiProvider$Iface" retries="0" check="false" timeout="10000"  />
+
+    <dubbo:reference id="searchServiceThrift" interface="com.rpc.dubbo.api.dthrift.SearchThriftProvider$Iface" protocol="thrift" retries="2" version="1.0.0"  >
+    </dubbo:reference>
 </beans>

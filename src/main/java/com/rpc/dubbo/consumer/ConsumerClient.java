@@ -14,6 +14,5 @@ public class ConsumerClient {
 
 
     public static void main(String[] args) {
-
     }
 }
