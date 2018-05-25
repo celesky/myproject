@@ -67,4 +67,12 @@ public class Test3 {
         System.out.println("true = " + true);
 
     }
+
+    public void test5(){
+        System.out.println("true = " + true);
+        System.out.println("true = " + true);
+
+        System.out.println("true = " + true);
+
+    }
 }
