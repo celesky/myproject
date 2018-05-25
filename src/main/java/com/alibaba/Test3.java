@@ -60,4 +60,11 @@ public class Test3 {
     public void tes3(){
 
     }
+    public void test4(){
+        System.out.println("true = " + true);
+        System.out.println("true = " + true);
+
+        System.out.println("true = " + true);
+
+    }
 }
