@@ -55,6 +55,9 @@ public class Test3 {
         return str;
     }
     public void test(){
-        
+
+    }
+    public void tes3(){
+
     }
 }
