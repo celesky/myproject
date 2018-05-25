@@ -54,4 +54,7 @@ public class Test3 {
         str=sb.reverse().toString();
         return str;
     }
+    public void test(){
+        
+    }
 }
