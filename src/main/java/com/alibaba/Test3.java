@@ -46,6 +46,11 @@ public class Test3 {
             sc=result/10;
             result=result%10;
             sb.append(result);
+
+
+            System.out.println("true = " + true);
+            System.out.println("true = " + true);
+
         }
 
         if(sc==1){
