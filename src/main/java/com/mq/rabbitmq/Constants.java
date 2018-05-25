@@ -1,4 +1,4 @@
 package com.mq.rabbitmq;
 
-public class Client {
+public class Constants {
 }
