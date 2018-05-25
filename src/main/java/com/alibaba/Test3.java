@@ -55,7 +55,7 @@ public class Test3 {
         return str;
     }
     public void test(){
-
+        System.out.println("true = " + true);
     }
     public void tes3(){
 
