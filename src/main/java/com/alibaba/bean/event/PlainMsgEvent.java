@@ -1,7 +1,8 @@
-package com.youhaoxi.livelink.gateway.bean.event;
+package com.alibaba.bean.event;
 
-import com.youhaoxi.livelink.gateway.bean.enums.BroadType;
-import com.youhaoxi.livelink.gateway.bean.enums.EventType;
+
+import com.alibaba.bean.enums.BroadType;
+import com.alibaba.bean.enums.EventType;
 
 public class PlainMsgEvent extends MsgEvent{
     private BroadType broadType;//1:群发 2:点对点

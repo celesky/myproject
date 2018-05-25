@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.lifesense.base.utils.serializer;
+package com.sede.cryo;
 
 import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryo.io.Input;

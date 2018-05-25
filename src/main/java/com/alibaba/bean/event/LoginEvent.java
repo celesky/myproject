@@ -1,6 +1,7 @@
-package com.youhaoxi.livelink.gateway.bean.event;
+package com.alibaba.bean.event;
 
-import com.youhaoxi.livelink.gateway.bean.enums.EventType;
+
+import com.alibaba.bean.enums.EventType;
 
 //登录事件
 public class LoginEvent extends MsgEvent{

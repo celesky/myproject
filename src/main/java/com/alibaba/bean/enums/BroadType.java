@@ -1,4 +1,4 @@
-package com.youhaoxi.livelink.gateway.bean.enums;
+package com.alibaba.bean.enums;
 
 /**
  *

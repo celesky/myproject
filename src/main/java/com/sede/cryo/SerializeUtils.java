@@ -1,4 +1,4 @@
-package com.lifesense.base.utils.serializer;
+package com.sede.cryo;
 
 import java.io.IOException;
 

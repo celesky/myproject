@@ -5,7 +5,7 @@ import com.rabbitmq.client.*;
 
 import java.io.IOException;
 
-public class ReceiveLogsDirect {
+public class ReceiveLogsDirectConsumer {
 
     private static final String EXCHANGE_NAME = "direct_logs";
 
@@ -21,7 +21,7 @@ public class ReceiveLogsDirect {
         String queueName = channel.queueDeclare().getQueue();
 
         if (argv.length < 1) {
-            System.err.println("Usage: ReceiveLogsDirect [info] [warning] [error]");
+            System.err.println("Usage: ReceiveLogsDirectConsumer [info] [warning] [error]");
             System.exit(1);
         }
 

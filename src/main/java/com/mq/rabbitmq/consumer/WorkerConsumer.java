@@ -5,7 +5,7 @@ import com.rabbitmq.client.*;
 
 import java.io.IOException;
 
-public class Worker {
+public class WorkerConsumer {
 
     private static final String TASK_QUEUE_NAME = "task_queue";
 
@@ -13,14 +13,14 @@ public class Worker {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost(Constants.HOST);
         factory.setPort(Constants.PORT);
-        
+
         final Connection connection = factory.newConnection();
         final Channel channel = connection.createChannel();
 
         channel.queueDeclare(TASK_QUEUE_NAME, true, false, false, null);
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
 
-        channel.basicQos(1);
+        channel.basicQos(1);//一次只收一条
 
         final Consumer consumer = new DefaultConsumer(channel) {
             @Override

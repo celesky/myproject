@@ -11,7 +11,7 @@ import java.util.Set;
  * Created by pan on 16/8/18.
  */
 public class RedisUtil {
-    static Jedis jedis;
+    public static Jedis jedis;
 
     static {
         jedis = new Jedis("139.196.151.78", 6377);

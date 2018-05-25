@@ -39,6 +39,6 @@ public class BenchTest {
             }
         }
 
-        return requestNum / qpsSum * 1000;
+        return (requestNum / qpsSum) * 1000;
     }
 }

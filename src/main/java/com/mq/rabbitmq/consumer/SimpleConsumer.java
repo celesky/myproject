@@ -6,7 +6,7 @@ import com.rabbitmq.client.*;
 
 import java.io.IOException;
 
-public class ConsumerTest {
+public class SimpleConsumer {
 
     private final static String QUEUE_NAME = "queue_simple";
 

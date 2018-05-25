@@ -1,6 +1,7 @@
-package com.youhaoxi.livelink.gateway.bean.msg;
+package com.alibaba.bean.msg;
 
-import com.youhaoxi.livelink.gateway.bean.enums.EventType;
+
+import com.alibaba.bean.enums.EventType;
 
 import java.time.LocalDateTime;
 

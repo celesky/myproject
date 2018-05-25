@@ -1,9 +1,11 @@
+package com.mq.rabbitmq.producer;
+
 import com.rabbitmq.client.BuiltinExchangeType;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.Channel;
 
-public class EmitLogTopic {
+public class EmitLogTopicProducer {
 
   private static final String EXCHANGE_NAME = "topic_logs";
 

@@ -1,4 +1,4 @@
-package com.youhaoxi.livelink.gateway.bean.event;
+package com.alibaba.bean.event;
 
 /**
  * 消息事件接口

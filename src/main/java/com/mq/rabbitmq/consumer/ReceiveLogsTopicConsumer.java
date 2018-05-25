@@ -1,16 +1,19 @@
 package com.mq.rabbitmq.consumer;
 
+import com.mq.rabbitmq.Constants;
 import com.rabbitmq.client.*;
 
 import java.io.IOException;
 
-public class ReceiveLogsTopic {
+public class ReceiveLogsTopicConsumer {
 
     private static final String EXCHANGE_NAME = "topic_logs";
 
     public static void main(String[] argv) throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("localhost");
+        factory.setHost(Constants.HOST);
+        factory.setPort(Constants.PORT);
+
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 
@@ -18,8 +21,9 @@ public class ReceiveLogsTopic {
         String queueName = channel.queueDeclare().getQueue();
 
         if (argv.length < 1) {
-            System.err.println("Usage: ReceiveLogsTopic [binding_key]...");
-            System.exit(1);
+            System.err.println("Usage: ReceiveLogsTopicConsumer [binding_key]...");
+            //System.exit(1);
+            argv =new String[]{"#"};
         }
 
         for (String bindingKey : argv) {

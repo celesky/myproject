@@ -1,4 +1,4 @@
-package com.youhaoxi.livelink.gateway.bean.msg;
+package com.alibaba.bean.msg;
 
 public class User{
     private Integer userId;

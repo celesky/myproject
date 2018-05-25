@@ -6,7 +6,7 @@ import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.Channel;
 
-public class EmitLogDirect {
+public class EmitLogDirectProducer {
 
     private static final String EXCHANGE_NAME = "direct_logs";
 
@@ -28,6 +28,7 @@ public class EmitLogDirect {
 
         channel.close();
         connection.close();
+
     }
 
     private static String getSeverity(String[] strings) {

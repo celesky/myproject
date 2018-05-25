@@ -1,4 +1,4 @@
-package com.youhaoxi.livelink.gateway.bean;
+package com.alibaba.bean;
 
 import java.util.HashMap;
 

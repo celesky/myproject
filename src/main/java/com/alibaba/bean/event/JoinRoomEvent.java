@@ -1,6 +1,7 @@
-package com.youhaoxi.livelink.gateway.bean.event;
+package com.alibaba.bean.event;
 
-import com.youhaoxi.livelink.gateway.bean.enums.EventType;
+
+import com.alibaba.bean.enums.EventType;
 
 //加入聊天室
 public class JoinRoomEvent extends MsgEvent{

@@ -6,7 +6,7 @@ import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.Channel;
 
-public class EmitLog {
+public class EmitLogProducer {
 
     private static final String EXCHANGE_NAME = "logs";
 

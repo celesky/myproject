@@ -1,13 +1,9 @@
 /**
  * 
  */
-package com.lifesense.base.utils.serializer;
+package com.sede.cryo;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 
 /**
  * JDK标准实现序列化

@@ -1,5 +1,6 @@
 package com.mq.kafka.javaapi.producer;
 
+import com.mq.kafka.Constants;
 import org.apache.kafka.clients.producer.*;
 
 import java.util.Properties;
@@ -14,7 +15,7 @@ public class ProductClient {
 
     public static void main(String[] args) {
         Properties props = new Properties();
-        props.put("bootstrap.servers", "127.0.0.1:9092");
+        props.put("bootstrap.servers", Constants.BROKER);
         props.put("acks", "1");
         props.put("retries", 0);
         props.put("batch.size", 16384);
