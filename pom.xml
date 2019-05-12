@@ -363,6 +363,12 @@
           <version>5.2.0</version>
       </dependency>
 
+      <dependency>
+          <groupId>com.opencc</groupId>
+          <artifactId>opencc</artifactId>
+          <version>0.1</version>
+      </dependency>
+
       <!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api
       <dependency>
           <groupId>javax.servlet</groupId>

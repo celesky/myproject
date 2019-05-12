@@ -5,12 +5,13 @@ package com.disruptor;
  * 即10个线程 和 长度为10的数组
  * 每个线程负责对对应下表的数组元素进行5000万次赋值操作
  */
-public class FalseSharing implements Runnable{
+public class FalseSharingPadding implements Runnable{
     public final static long ITERATIONS = 500L * 1000L * 100L;
     private int arrayIndex = 0;
 
-    private static ValuePadding[] longs;
-    public FalseSharing(final int arrayIndex) {
+    private static ValuePadding[] valueArrays;
+
+    public FalseSharingPadding(final int arrayIndex) {
         this.arrayIndex = arrayIndex;
     }
 
@@ -26,12 +27,12 @@ public class FalseSharing implements Runnable{
 
     private static void runTest(int NUM_THREADS) throws InterruptedException {
         Thread[] threads = new Thread[NUM_THREADS];
-        longs = new ValuePadding[NUM_THREADS];
-        for (int i = 0; i < longs.length; i++) {
-            longs[i] = new ValuePadding();
+        valueArrays = new ValuePadding[NUM_THREADS];
+        for (int i = 0; i < valueArrays.length; i++) {
+            valueArrays[i] = new ValuePadding();
         }
         for (int i = 0; i < threads.length; i++) {
-            threads[i] = new Thread(new FalseSharing(i));
+            threads[i] = new Thread(new FalseSharingPadding(i));
         }
 
         for (Thread t : threads) {
@@ -43,22 +44,18 @@ public class FalseSharing implements Runnable{
         }
     }
 
+    @Override
     public void run() {
         long i = ITERATIONS + 1;
         while (0 != --i) {
-            longs[arrayIndex].value = 0L;
+            valueArrays[arrayIndex].value = 0L;
         }
     }
 
     public final static class ValuePadding {
-//        protected long p1, p2, p3, p4, p5, p6, p7;
+        //protected long p1, p2, p3, p4;
         protected volatile long value = 0L;
-//        protected long p9, p10, p11, p12, p13, p14;
-//        protected long p15;
+        //protected long p9, p10, p11;
     }
-    public final static class ValueNoPadding {
-        // protected long p1, p2, p3, p4, p5, p6, p7;
-        protected volatile long value = 0L;
-        // protected long p9, p10, p11, p12, p13, p14, p15;
-    }
+
 }

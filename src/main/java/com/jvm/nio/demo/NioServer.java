@@ -31,13 +31,27 @@ public class NioServer {
         decoder = charset.newDecoder();
     }
 
-    // 获取Selector
+    /**
+     * 获取Selector
+     */
     protected Selector getSelector(int port) throws IOException {
-        Selector selctor = Selector.open();//打开一个selector
-        ServerSocketChannel socketChannel = ServerSocketChannel.open();//打开管道
+        //打开一个selector
+        Selector selctor = Selector.open();
+        //打开管道
+        ServerSocketChannel socketChannel = ServerSocketChannel.open();
         socketChannel.socket().bind(new InetSocketAddress(port));
         socketChannel.configureBlocking(false);
-        socketChannel.register(selctor, SelectionKey.OP_ACCEPT);//注册到selector
+        //注册到selector 当服务端收到客户端的一个连接请求时，‘SelectionKey.OP_ACCEPT’将会触发
+        //Registers this channel with the given selector, returning a selectionkey.
+        //注意register()方法的第二个参数。这是一个“interest集合”，意思是在通过Selector监听Channel时对什么事件感兴趣
+        SelectionKey selectionKey = socketChannel.register(selctor, SelectionKey.OP_ACCEPT);
+        int interestSet = selectionKey.interestOps();
+        System.out.println("intrest = " + interestSet);
+//        boolean isInterestedInAccept  = (interestSet & SelectionKey.OP_ACCEPT) == SelectionKey.OP_ACCEPT;
+//        boolean isInterestedInConnect = interestSet & SelectionKey.OP_CONNECT ;
+//        boolean isInterestedInRead    = interestSet & SelectionKey.OP_READ ;
+//        boolean isInterestedInWrite   = interestSet & SelectionKey.OP_WRITE ;
+
         return selctor;
     }
 
@@ -66,7 +80,7 @@ public class NioServer {
             //设置非阻塞模式
             channel.configureBlocking(false);
             channel.register(selector, SelectionKey.OP_READ);
-        } else if (key.isReadable()) { // 读信息
+        } else if (key.isReadable()) { // 读就绪事件
             SocketChannel channel = (SocketChannel) key.channel();
             int count = channel.read(clientBuffer);
             if (count > 0) {
@@ -82,7 +96,7 @@ public class NioServer {
             }
 
             clientBuffer.clear();
-        } else if (key.isWritable()) { // 写事件
+        } else if (key.isWritable()) { // 写就绪事件
             SocketChannel channel = (SocketChannel) key.channel();
             String name = (String) key.attachment();
 
