@@ -83,7 +83,7 @@
       <dependency>
           <groupId>org.apache.zookeeper</groupId>
           <artifactId>zookeeper</artifactId>
-          <version>3.4.6</version>
+          <version>3.4.14</version>
       </dependency>
       <!-- https://mvnrepository.com/artifact/commons-lang/commons-lang -->
       <dependency>
@@ -296,7 +296,7 @@
 	<dependency>
 		<groupId>org.apache.zookeeper</groupId>
 		<artifactId>zookeeper</artifactId>
-		<version>3.4.6</version>
+		<version>3.4.14</version>
 	</dependency>
 
 	<dependency>
