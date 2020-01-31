@@ -369,6 +369,12 @@
           <version>0.1</version>
       </dependency>
 
+      <dependency>
+          <groupId>io.projectreactor</groupId>
+          <artifactId>reactor-core</artifactId>
+          <version>3.1.7.RELEASE</version>
+      </dependency>
+
       <!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api
       <dependency>
           <groupId>javax.servlet</groupId>
